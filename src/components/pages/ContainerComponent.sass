@@ -1,0 +1,22 @@
+
+@use "sass:map"
+@use "sass:string"
+@use "../../sass/modules/globals"
+@import "../../sass/partials/extend"
+
+@mixin container-style()
+    $bg-url: map.get(globals.$urls,"background")
+    div#page-container
+        position: relative
+        height: 100vh
+        width: 100%
+        @extend %flex-center
+        &::before
+            content: ""
+            background-image: url(#{$bg-url})
+            background-size: cover
+            position: absolute
+            @extend %stretch
+            opacity: 0.5
+
+@include container-style()
