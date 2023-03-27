@@ -10,9 +10,9 @@ export default class ContainerComponent extends Component<any,any>{
 
     render(): React.ReactNode {
         return (
-            <>
+            <div id="page-container">
                 <HomeComponent />
-            </>
+            </div>
         )
     }
 

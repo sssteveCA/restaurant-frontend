@@ -7,7 +7,7 @@ import ContainerComponent from './components/pages/ContainerComponent';
 
 function App() {
   return (
-    <div className='px-3 py-8'>
+    <div>
       <Navbar />
       <ContainerComponent />
       <Footer />
