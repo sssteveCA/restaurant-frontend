@@ -1,5 +1,5 @@
 
-import React, { Component, useState } from 'react'
+import React from 'react'
 import './Navbar.sass'
 
 export default class Navbar extends React.Component<any,any>{
@@ -24,18 +24,17 @@ export default class Navbar extends React.Component<any,any>{
 
     constructor(props: any){
         super(props);
-        useState({
+        this.state = {
             logged: false
-        })
+        }
+        
     }
 
     public render(){
         return (
-            <nav>
-                <ul className="flex bg-black">
-                    {this.leftMenu()}
-                    {this.rightMenu()}
-                </ul>
+            <nav className='flex justify-between bg-black'>
+                <ul className='flex'>{this.leftMenu()}</ul>
+                <ul className='flex'>{this.rightMenu()}</ul>
             </nav>     
           )
     }
@@ -43,11 +42,11 @@ export default class Navbar extends React.Component<any,any>{
     private leftMenu(): Array<JSX.Element> {
         return this.menu_data.map((menu_item) => {
             return (
-                    <li key={menu_item.id} className="mr-6 px-3 py-3">
-                        <a 
-                            className="text-blue-500 hover:text-blue-800" 
-                            href={menu_item.link}>{menu_item.title}</a>
-                    </li>
+                <li key={menu_item.id} className="mr-6 px-3 py-3">
+                    <a 
+                        className="text-blue-500 hover:text-blue-800" 
+                        href={menu_item.link}>{menu_item.title}</a>
+                </li>
             )
         });
     }

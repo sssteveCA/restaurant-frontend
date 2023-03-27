@@ -1,7 +1,7 @@
 import React from 'react'
 import './Footer.sass'
 
-export const Footer = () => {
+const Footer = () => {
   return (
     <footer className='bg-black px-6 py-10 mt-5 text-white'>
         <div>Online restaurant</div>
@@ -24,3 +24,5 @@ export const Footer = () => {
     </footer>
   )
 }
+
+export default Footer
