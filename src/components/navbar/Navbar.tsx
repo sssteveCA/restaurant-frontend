@@ -40,7 +40,7 @@ export default class Navbar extends React.Component<any,any>{
 
     render(): React.ReactNode {
         return (
-            <nav className='bg-black text-white'>
+            <nav className='bg-blue-500 text-white font-bold'>
                 <div className="container flex flex-wrap items-center justify-between mx-auto">
                     {this.collapse()}
                     {this.menu()}
@@ -58,7 +58,7 @@ export default class Navbar extends React.Component<any,any>{
         return (
             <>
                 <div className='lg:hidden'>Online Restaurant</div>
-                <button id="collapse-button" data-collapse-toggle="navbar-online-restaurant" type="button" className="text-gray-500 hover:bg-gray-100 focus:ring-2 focus:ring-gray-200 dark:text-gray-400 dark:hover:bg-gray-700 dark:focus:ring-gray-600 lg:hidden" aria-controls="navbar-online-restaurant" aria-expanded="false" onClick={this.onCollapseButtonClick}>
+                <button id="collapse-button" data-collapse-toggle="navbar-online-restaurant" type="button" className="inline-flex text-gray-500 hover:bg-gray-100 focus:ring-2 focus:ring-gray-200 dark:text-gray-400 dark:hover:bg-gray-700 dark:focus:ring-gray-600 lg:hidden" aria-controls="navbar-online-restaurant" aria-expanded="false" onClick={this.onCollapseButtonClick}>
                     <svg className="w-6 h-6" aria-hidden="true" fill="currentColor" viewBox="0 0 20 20" xmlns="http://www.w3.org/2000/svg"><path fill-rule="evenodd" d="M3 5a1 1 0 011-1h12a1 1 0 110 2H4a1 1 0 01-1-1zM3 10a1 1 0 011-1h12a1 1 0 110 2H4a1 1 0 01-1-1zM3 15a1 1 0 011-1h12a1 1 0 110 2H4a1 1 0 01-1-1z" clip-rule="evenodd"></path></svg>
                 </button>
             </>
@@ -86,9 +86,7 @@ export default class Navbar extends React.Component<any,any>{
         return this.menu_data.map((menu_item) => {
             return (
                 <li key={menu_item.id} className="mr-6 px-3 py-3">
-                    <a 
-                        className="text-blue-500 hover:text-blue-800" 
-                        href={menu_item.link}>{menu_item.title}</a>
+                    <a href={menu_item.link}>{menu_item.title}</a>
                 </li>
             )
         });
@@ -108,7 +106,7 @@ export default class Navbar extends React.Component<any,any>{
             return (
                 <li key={menu_item.id} className="mr-6 px-3 py-3">
                     <a 
-                        className="text-blue-500 hover:text-blue-800" 
+                        className="hover:text-blue-800" 
                         href={menu_item.link}>{menu_item.title}</a>
                 </li>
             )
