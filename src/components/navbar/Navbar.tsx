@@ -31,7 +31,7 @@ export default class Navbar extends React.Component<any,any>{
         
     }
 
-    public render(){
+    render(): React.ReactNode {
         return (
             <nav className='flex justify-between bg-black'>
                 <ul className='flex'>{this.leftMenu()}</ul>

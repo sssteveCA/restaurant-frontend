@@ -6,10 +6,10 @@ import Footer from './components/footer/Footer';
 
 function App() {
   return (
-    <>
+    <div className='px-3 py-8'>
       <Navbar />
       <Footer />
-    </>
+    </div>
     
   );
 }
