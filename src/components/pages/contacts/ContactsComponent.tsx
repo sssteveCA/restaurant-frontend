@@ -8,7 +8,7 @@ export default class ContactsComponent extends Component<any,any>{
 
     render(): React.ReactNode {
         return (
-            <div>Contatti</div>
+            <div className='text-2xl md:text-3xl lg:text-4xl text-black font-black text-center'>Pagina dei contatti</div>
         )
     }
 }

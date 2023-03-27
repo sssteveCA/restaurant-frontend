@@ -8,7 +8,7 @@ export default class BlogComponent extends Component<any,any>{
 
     render(): React.ReactNode {
         return (
-            <div>Blog</div>
+            <div className='text-2xl md:text-3xl lg:text-4xl text-black font-black text-center'>Pagina del blog</div>
         )
     }
 }
