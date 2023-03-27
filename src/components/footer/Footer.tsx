@@ -1,11 +1,12 @@
 import React from 'react'
+import './Footer.sass'
 
 export const Footer = () => {
   return (
-    <footer className='bg-black px-3 py-10 mt-5'>
+    <footer className='bg-black px-6 py-10 mt-5 text-white'>
         <div>Online restaurant</div>
         <div>
-            <ul>
+            <ul className='footer-link'>
                 <li><a href="#">Privacy</a></li>
                 <li><a href="#">Cookies</a></li>
             </ul>
