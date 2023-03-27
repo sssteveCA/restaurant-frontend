@@ -1,10 +1,11 @@
 
 import React from 'react'
+import Types from '../../constants/types';
 import './Navbar.sass'
 
 export default class Navbar extends React.Component<any,any>{
 
-    private readonly menu_data  = [
+    private readonly menu_data: Types.MenuItem[]  = [
         {id: 0, title: 'Home', link: '#'},
         {id: 1, title: 'Chi siamo', link: '#'},
         {id: 2, title: 'Menu', link: '#'},
@@ -12,12 +13,12 @@ export default class Navbar extends React.Component<any,any>{
         {id: 4, title: 'Contatti', link: '#'},
     ];
 
-    private readonly menu_not_logged = [
+    private readonly menu_not_logged: Types.MenuItem[] = [
         {id: 5,title: 'Login', link: '#'},
         {id: 6,title: 'Registrati', link: '#'},
     ]
 
-    private readonly menu_logged = [
+    private readonly menu_logged: Types.MenuItem[] = [
         {id: 7,title: 'Profilo', link: '#'},
         {id: 8,title: 'Logout', link: '#'},
     ]
@@ -39,6 +40,10 @@ export default class Navbar extends React.Component<any,any>{
           )
     }
 
+    /**
+     * The portion of the menu left justified
+     * @returns 
+     */
     private leftMenu(): Array<JSX.Element> {
         return this.menu_data.map((menu_item) => {
             return (
@@ -51,6 +56,10 @@ export default class Navbar extends React.Component<any,any>{
         });
     }
 
+    /**
+     * The portion of menu right justified
+     * @returns 
+     */
     private rightMenu(): Array<JSX.Element>{
         let right_menu = [];
         if(this.state.logged === true)

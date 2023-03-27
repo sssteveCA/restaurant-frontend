@@ -1,5 +1,6 @@
 import React from 'react'
 import './Footer.sass'
+import SocialIcons from './social_icons/SocialIcons'
 
 const Footer = () => {
   return (
@@ -15,11 +16,10 @@ const Footer = () => {
             <div>Via **********</div>
             <div>070******</div>
             <div>336******</div>
+            <div>info@********</div>
         </div>
         <div>
-            <div></div>
-            <div></div>
-            <div></div>
+            <SocialIcons />
         </div>
     </footer>
   )
