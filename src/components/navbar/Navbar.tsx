@@ -1,5 +1,6 @@
 
 import React from 'react'
+import { NavLink } from 'react-router-dom';
 import Types from '../../constants/types';
 import './Navbar.sass'
 
@@ -86,7 +87,7 @@ export default class Navbar extends React.Component<any,any>{
         return this.menu_data.map((menu_item) => {
             return (
                 <li key={menu_item.id} className="mr-6 px-3 py-3">
-                    <a href={menu_item.link}>{menu_item.title}</a>
+                    <NavLink to={menu_item.link} >{menu_item.title}</NavLink>
                 </li>
             )
         });
@@ -105,9 +106,7 @@ export default class Navbar extends React.Component<any,any>{
         return right_menu.map(menu_item => {
             return (
                 <li key={menu_item.id} className="mr-6 px-3 py-3">
-                    <a 
-                        className="hover:text-blue-800" 
-                        href={menu_item.link}>{menu_item.title}</a>
+                    <NavLink to={menu_item.link}>{menu_item.title}</NavLink>
                 </li>
             )
         })
