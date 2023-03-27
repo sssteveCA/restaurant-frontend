@@ -7,11 +7,11 @@ import './Navbar.sass'
 export default class Navbar extends React.Component<any,any>{
 
     private readonly menu_data: Types.MenuItem[]  = [
-        {id: 0, title: 'Home', link: '#'},
-        {id: 1, title: 'Chi siamo', link: '#'},
-        {id: 2, title: 'Menu', link: '#'},
-        {id: 3, title: 'Blog', link: '#'},
-        {id: 4, title: 'Contatti', link: '#'},
+        {id: 0, title: 'Home', link: '/'},
+        {id: 1, title: 'Chi siamo', link: '/about'},
+        {id: 2, title: 'Menu', link: '/menu'},
+        {id: 3, title: 'Blog', link: '/blog'},
+        {id: 4, title: 'Contatti', link: '/contacts'},
     ];
 
     private readonly menu_not_logged: Types.MenuItem[] = [

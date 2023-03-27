@@ -1,6 +1,11 @@
 import React, { Component } from "react";
 import HomeComponent from "./home/HomeComponent";
 import './ContainerComponent.sass';
+import { Route, Routes } from "react-router-dom";
+import AboutComponent from "./about/AboutComponent";
+import RestaurantMenu from "./restaurant_menu/RestaurantMenu";
+import BlogComponent from "./blog/BlogComponent";
+import ContactsComponent from "./contacts/ContactsComponent";
 
 export default class ContainerComponent extends Component<any,any>{
 
@@ -11,7 +16,13 @@ export default class ContainerComponent extends Component<any,any>{
     render(): React.ReactNode {
         return (
             <div id="page-container">
-                <HomeComponent />
+                <Routes>
+                    <Route path="/" element={<HomeComponent />} />        
+                    <Route path="about" element={<AboutComponent />} />  
+                    <Route path="menu" element={<RestaurantMenu />} />    
+                    <Route path="blog" element={<BlogComponent />} />
+                    <Route path="contacts" element={<ContactsComponent />} />           
+                </Routes>    
             </div>
         )
     }
