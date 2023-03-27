@@ -33,9 +33,9 @@ export default class Navbar extends React.Component<any,any>{
 
     render(): React.ReactNode {
         return (
-            <nav className='flex justify-between bg-black'>
-                <ul className='flex'>{this.leftMenu()}</ul>
-                <ul className='flex'>{this.rightMenu()}</ul>
+            <nav className='flex flex-col lg:flex-row lg:justify-between bg-black'>
+                <ul className='flex flex-col lg:flex-row'>{this.leftMenu()}</ul>
+                <ul className='flex flex-col lg:flex-row'>{this.rightMenu()}</ul>
             </nav>     
           )
     }
