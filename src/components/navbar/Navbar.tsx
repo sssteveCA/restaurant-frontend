@@ -1,28 +1,49 @@
 
-import React from 'react'
+import React, { Component, useState } from 'react'
 import './Navbar.sass'
 
-export const Navbar = () => {
+export default class Navbar extends Component{
 
-    const menu_data  = [
+    private readonly menu_data  = [
         {title: 'Home', link: '#'},
         {title: 'Chi siamo', link: '#'},
         {title: 'Menu', link: '#'},
         {title: 'Blog', link: '#'},
         {title: 'Contatti', link: '#'},
     ];
-  return (
-    <nav>
-        <ul className="flex bg-black">
-        {
-            menu_data.map(menu_item => {
-                return <li className="mr-6 px-3 py-3">
-                    <a className="text-blue-500 hover:text-blue-800" href={menu_item.link}>{menu_item.title}</a>
-                </li>
-            })
-        }
-        </ul>
-    </nav>
-    
-  )
+
+    private readonly menu_not_logged = [
+        {title: 'Login', link: '#'},
+        {title: 'Registrati', link: '#'},
+    ]
+
+    private readonly menu_logged = [
+        {title: 'Profilo', link: '#'},
+        {title: 'Logout', link: '#'},
+    ]
+
+    constructor(props: any){
+        super(props);
+        useState({
+            logged: false
+        })
+    }
+
+    public render(){
+
+        return (
+            <nav>
+                <ul className="flex bg-black">
+                {
+                    this.menu_data.map((menu_item, index) => {
+                        return <li key={index} className="mr-6 px-3 py-3">
+                            <a className="text-blue-500 hover:text-blue-800" href={menu_item.link}>{menu_item.title}</a>
+                        </li>
+                    })
+                }
+                </ul>
+            </nav>     
+          )
+    }
+  
 }
