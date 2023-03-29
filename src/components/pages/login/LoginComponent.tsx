@@ -6,14 +6,17 @@ import LabelInputComponent from "../../partials/labelinput/LabelInputComponent";
 import TitleComponent from "../../partials/title/TitleComponent";
 import './LoginComponent.sass'
 
-export default class LoginComponent extends Component<any,any>{
+export default class LoginComponent extends Component<any,Types.LoginState>{
 
     constructor(props: any){
         super(props);
+        this.state = {
+            username: '', password: ''
+        }
     }
 
     onPrimaryButtonClick(): void{
-        console.log("Cc onPrimaryButtonClick")
+        console.log("Lc onPrimaryButtonClick")
     }
 
     render(): ReactNode {
@@ -33,8 +36,8 @@ export default class LoginComponent extends Component<any,any>{
                <TitleComponent title="Login" />
                 <div id="login-container">
                     <form>
-                        <LabelInputComponent input_id="username" input_type="text" label_text="Username" />
-                        <LabelInputComponent input_id="password" input_type="password" label_text="Password" />
+                        <LabelInputComponent input_id="username" input_type="text" label_text="Username" value={this.state.username}/>
+                        <LabelInputComponent input_id="password" input_type="password" label_text="Password" value={this.state.password}/>
                         <CheckBoxComponent checkbox_id="show-password" label_text="Mostra password" />
                         <TwoButtonsComponent {...tb_props} />
                     </form>

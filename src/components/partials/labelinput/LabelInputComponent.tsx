@@ -5,6 +5,7 @@ class LabelInputComponent extends Component<Types.LabelInputProps,any> {
 
   constructor(props: Types.LabelInputProps){
     super(props);
+
   }
 
   render(): React.ReactNode {
