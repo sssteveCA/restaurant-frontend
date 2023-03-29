@@ -2,6 +2,13 @@
 namespace Types{
 
     /**
+     * CheckBoxComponent props
+     */
+    export type CheckBoxProps = {
+        checkbox_id: string, label_text: string
+    }
+
+    /**
      * ContactsComponent props
      */
     export type ContactsProps = {
