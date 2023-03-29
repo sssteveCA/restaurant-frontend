@@ -5,12 +5,14 @@ class LabelTextareaComponent extends Component<Types.LabelTextAreaProps,any> {
 
   constructor(props: Types.LabelTextAreaProps){
     super(props)
+    this.onTextAreaChange = this.onTextAreaChange.bind(this)
   }
 
   onTextAreaChange(e: SyntheticEvent): void{
     let target: HTMLTextAreaElement = e.target as HTMLTextAreaElement;
     let id: string = target.id;
     let value: string = target.value;
+    this.props.onTextAreaChange(id,value)
   }
 
   render(): React.ReactNode {
@@ -20,7 +22,7 @@ class LabelTextareaComponent extends Component<Types.LabelTextAreaProps,any> {
               <label htmlFor={this.props.textarea_id}>{this.props.label_text}</label>
           </div>
           <div className="textarea-div columns-12 md:columns-7">
-              <textarea id={this.props.textarea_id}></textarea>
+              <textarea id={this.props.textarea_id} onChange={this.onTextAreaChange}></textarea>
           </div>   
       </div>
     ) 

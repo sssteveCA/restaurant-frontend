@@ -13,20 +13,26 @@ export default class ContactsComponent extends Component<any,Types.ContactsState
         this.state = {
            name: '', email: '', message: '' 
         }
-        this.onInputChange = this.onInputChange.bind(this);
+        this.onInputChange = this.onInputChange.bind(this)
         this.onPrimaryButtonClick = this.onPrimaryButtonClick.bind(this)
+        this.onTextAreaChange = this.onTextAreaChange.bind(this)
     }
 
     onInputChange(id: string, value: string): void{
-        console.log("cc");
-        console.log(id)
-        console.log(value)
         switch(id){
             case 'name':
                 this.setState({name: value})
                 break
             case 'email':
                 this.setState({email: value})
+                break
+        }
+    }
+
+    onTextAreaChange(id: string, value: string): void{
+        switch(id){
+            case 'message':
+                this.setState({message: value})
                 break
         }
     }
@@ -55,7 +61,7 @@ export default class ContactsComponent extends Component<any,Types.ContactsState
                     <form>
                         <LabelInputComponent input_id="name" input_type="text" label_text="Nome" onInputChange={this.onInputChange}/>
                         <LabelInputComponent input_id="email" input_type="email" label_text="Email" onInputChange={this.onInputChange}/>
-                        <LabelTextareaComponent label_text="Messaggio" textarea_id="message"  />
+                        <LabelTextareaComponent label_text="Messaggio" textarea_id="message" onTextAreaChange={this.onTextAreaChange}  />
                         <TwoButtonsComponent {...tb_props} />
                     </form>
                 </div>

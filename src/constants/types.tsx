@@ -33,7 +33,7 @@ namespace Types{
      * LabelTextAreaComponent props
      */
     export type LabelTextAreaProps = {
-        label_text: string, textarea_id: string
+        label_text: string, textarea_id: string, onTextAreaChange: (id: string, value: string) => void
     }
 
     /**
