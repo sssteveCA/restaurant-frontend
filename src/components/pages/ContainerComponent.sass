@@ -12,6 +12,7 @@
         width: 100%
         display: flex
         justify-content: center
+        flex-direction: column
         padding-top: 20px
         &::before
             content: ""
@@ -20,5 +21,6 @@
             position: absolute
             @extend %stretch
             opacity: 0.5
+            z-index: -1
 
 @include container-style()
