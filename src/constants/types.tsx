@@ -13,7 +13,6 @@ namespace Types{
     }
 
     export type TwoButtonsProps = {
-        containerClasses: string,
         buttons: [
             { classes: string, text: string },
             { classes: string, text: string },
