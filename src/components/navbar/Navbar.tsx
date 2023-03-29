@@ -15,7 +15,7 @@ export default class Navbar extends React.Component<any,any>{
     ];
 
     private readonly menu_not_logged: Types.MenuItem[] = [
-        {id: 5,title: 'Login', link: '#'},
+        {id: 5,title: 'Login', link: '/login'},
         {id: 6,title: 'Registrati', link: '#'},
     ]
 
