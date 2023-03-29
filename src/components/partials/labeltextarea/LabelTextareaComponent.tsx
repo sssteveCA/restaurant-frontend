@@ -1,10 +1,16 @@
-import React, { Component } from 'react'
+import React, { Component, SyntheticEvent } from 'react'
 import Types from '../../../constants/types'
 
 class LabelTextareaComponent extends Component<Types.LabelTextAreaProps,any> {
 
   constructor(props: Types.LabelTextAreaProps){
     super(props)
+  }
+
+  onTextAreaChange(e: SyntheticEvent): void{
+    let target: HTMLTextAreaElement = e.target as HTMLTextAreaElement;
+    let id: string = target.id;
+    let value: string = target.value;
   }
 
   render(): React.ReactNode {
