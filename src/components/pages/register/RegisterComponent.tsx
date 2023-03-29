@@ -6,7 +6,15 @@ import LabelInputComponent from '../../partials/labelinput/LabelInputComponent'
 import TitleComponent from '../../partials/title/TitleComponent'
 import './RegisterComponent.sass'
 
-export default class RegisterComponent extends Component {
+export default class RegisterComponent extends Component<any,any> {
+
+  constructor(props: any){
+    super(props)
+  }
+
+  onPrimaryButtonClick(): void{
+    console.log("Cc onPrimaryButtonClick")
+  }
 
   render() {
 
@@ -18,7 +26,8 @@ export default class RegisterComponent extends Component {
             {
                 classes: "bg-red-500 hover:bg-red-700 text-white font-bold py-2 px-4 rounded focus:outline-none focus:shadow-outline", 
                 text: "Annulla"},
-        ]
+        ],
+        onPrimaryButtonClick: this.onPrimaryButtonClick
     }
 
     return (

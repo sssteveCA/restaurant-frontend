@@ -40,7 +40,8 @@ namespace Types{
         buttons: [
             { classes: string, text: string },
             { classes: string, text: string },
-        ]
+        ],
+        onPrimaryButtonClick(): void
     }
 }
 

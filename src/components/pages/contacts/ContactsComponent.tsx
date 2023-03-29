@@ -12,6 +12,10 @@ export default class ContactsComponent extends Component<any,any>{
         super(props)
     }
 
+    onPrimaryButtonClick(): void{
+        console.log("Cc onPrimaryButtonClick")
+    }
+
     render(): React.ReactNode {
         let tb_props: Types.TwoButtonsProps =  {
             buttons: [
@@ -21,7 +25,8 @@ export default class ContactsComponent extends Component<any,any>{
                 {
                     classes: "bg-red-500 hover:bg-red-700 text-white font-bold py-2 px-4 rounded focus:outline-none focus:shadow-outline", 
                     text: "Annulla"},
-            ]
+            ],
+            onPrimaryButtonClick: this.onPrimaryButtonClick
         }
         return (
             <>
