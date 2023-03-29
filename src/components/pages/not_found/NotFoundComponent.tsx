@@ -1,8 +1,9 @@
 import React from 'react'
+import TitleComponent from '../../partials/title/TitleComponent'
 
 const NotFoundComponent = () => {
   return (
-    <div className='text-2xl md:text-3xl lg:text-4xl text-black font-black text-center'>Pagina non trovata</div>
+    <TitleComponent title="Pagina non trovata" />
   )
 }
 

@@ -1,4 +1,5 @@
 import React, { Component } from 'react'
+import TitleComponent from '../../partials/title/TitleComponent'
 
 export default class BlogComponent extends Component<any,any>{
 
@@ -8,7 +9,7 @@ export default class BlogComponent extends Component<any,any>{
 
     render(): React.ReactNode {
         return (
-            <div className='text-2xl md:text-3xl lg:text-4xl text-black font-black text-center'>Pagina del blog</div>
+            <TitleComponent title="Pagina del blog" />
         )
     }
 }

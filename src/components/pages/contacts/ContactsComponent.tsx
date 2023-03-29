@@ -1,4 +1,5 @@
 import { Component } from "react";
+import TitleComponent from "../../partials/title/TitleComponent";
 
 export default class ContactsComponent extends Component<any,any>{
 
@@ -8,7 +9,7 @@ export default class ContactsComponent extends Component<any,any>{
 
     render(): React.ReactNode {
         return (
-            <div className='text-2xl md:text-3xl lg:text-4xl text-black font-black text-center'>Pagina dei contatti</div>
+            <TitleComponent title="Pagina dei contatti" />
         )
     }
 }

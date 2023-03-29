@@ -1,8 +1,9 @@
 import React from 'react'
+import TitleComponent from '../../partials/title/TitleComponent'
 
 const HomeComponent = () => {
   return (
-    <div className='text-2xl md:text-3xl lg:text-4xl text-black font-black text-center'>Benvenuto, ti presentiamo il nostro ristorante</div>
+    <TitleComponent title="Benvenuto" />
   )
 }
 
