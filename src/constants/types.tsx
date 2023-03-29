@@ -19,21 +19,21 @@ namespace Types{
      * ContactsComponent state
      */
     export type ContactsState = {
-        name_value: '', email_value: '', message_value: '' 
+        name: string, email: string, message: string 
     }
 
     /**
      * LabelInputComponent props
      */
     export type LabelInputProps = {
-        label_text: string, input_id: string, input_type: string, value: string
+        label_text: string, input_id: string, input_type: string, onInputChange: (id: string, value: string) => void
     }
 
     /**
      * LabelTextAreaComponent props
      */
     export type LabelTextAreaProps = {
-        label_text: string, textarea_id: string, value: string
+        label_text: string, textarea_id: string
     }
 
     /**

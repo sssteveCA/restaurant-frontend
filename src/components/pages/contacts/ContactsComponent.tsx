@@ -11,12 +11,29 @@ export default class ContactsComponent extends Component<any,Types.ContactsState
     constructor(props: any){
         super(props)
         this.state = {
-           name_value: '', email_value: '', message_value: '' 
+           name: '', email: '', message: '' 
+        }
+        this.onInputChange = this.onInputChange.bind(this);
+        this.onPrimaryButtonClick = this.onPrimaryButtonClick.bind(this)
+    }
+
+    onInputChange(id: string, value: string): void{
+        console.log("cc");
+        console.log(id)
+        console.log(value)
+        switch(id){
+            case 'name':
+                this.setState({name: value})
+                break
+            case 'email':
+                this.setState({email: value})
+                break
         }
     }
 
     onPrimaryButtonClick(): void{
         console.log("Cc onPrimaryButtonClick")
+        console.log(this.state)
     }
 
     render(): React.ReactNode {
@@ -36,9 +53,9 @@ export default class ContactsComponent extends Component<any,Types.ContactsState
                 <TitleComponent title="Pagina dei contatti" />
                 <div id="contacts-container">
                     <form>
-                        <LabelInputComponent input_id="name" input_type="text" label_text="Nome" value={this.state.name_value}/>
-                        <LabelInputComponent input_id="email" input_type="email" label_text="Email" value={this.state.email_value}/>
-                        <LabelTextareaComponent label_text="Messaggio" textarea_id="message" value={this.state.message_value} />
+                        <LabelInputComponent input_id="name" input_type="text" label_text="Nome" onInputChange={this.onInputChange}/>
+                        <LabelInputComponent input_id="email" input_type="email" label_text="Email" onInputChange={this.onInputChange}/>
+                        <LabelTextareaComponent label_text="Messaggio" textarea_id="message"  />
                         <TwoButtonsComponent {...tb_props} />
                     </form>
                 </div>

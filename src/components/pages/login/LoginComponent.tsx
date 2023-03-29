@@ -13,10 +13,24 @@ export default class LoginComponent extends Component<any,Types.LoginState>{
         this.state = {
             username: '', password: ''
         }
+        this.onInputChange = this.onInputChange.bind(this)
+        this.onPrimaryButtonClick = this.onPrimaryButtonClick.bind(this)
     }
+
+    onInputChange(id: string, value: string): void{
+        switch(id){
+            case 'username':
+                this.setState({username: value})
+                break
+            case 'password':
+                this.setState({password: value})
+                break
+        }
+      }
 
     onPrimaryButtonClick(): void{
         console.log("Lc onPrimaryButtonClick")
+        console.log(this.state)
     }
 
     render(): ReactNode {
@@ -36,8 +50,8 @@ export default class LoginComponent extends Component<any,Types.LoginState>{
                <TitleComponent title="Login" />
                 <div id="login-container">
                     <form>
-                        <LabelInputComponent input_id="username" input_type="text" label_text="Username" value={this.state.username}/>
-                        <LabelInputComponent input_id="password" input_type="password" label_text="Password" value={this.state.password}/>
+                        <LabelInputComponent input_id="username" input_type="text" label_text="Username" onInputChange={this.onInputChange} />
+                        <LabelInputComponent input_id="password" input_type="password" label_text="Password" onInputChange={this.onInputChange} />
                         <CheckBoxComponent checkbox_id="show-password" label_text="Mostra password" />
                         <TwoButtonsComponent {...tb_props} />
                     </form>
