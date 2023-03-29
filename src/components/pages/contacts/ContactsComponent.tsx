@@ -1,4 +1,6 @@
 import { Component } from "react";
+import Types from "../../../constants/types";
+import TwoButtonsComponent from "../../partials/buttons/twobuttons/TwoButtonsComponent";
 import TitleComponent from "../../partials/title/TitleComponent";
 
 export default class ContactsComponent extends Component<any,any>{
@@ -8,6 +10,17 @@ export default class ContactsComponent extends Component<any,any>{
     }
 
     render(): React.ReactNode {
+        let tb_props: Types.TwoButtonsProps =  {
+            containerClasses: "flex justify-center sm:justify-evenly flex-col sm:flex-row",
+            buttons: [
+                {
+                    classes: "bg-blue-500 hover:bg-blue-700 text-white font-bold py-2 px-4 rounded focus:outline-none focus:shadow-outline", 
+                    text: "Invia"},
+                {
+                    classes: "bg-red-500 hover:bg-red-700 text-white font-bold py-2 px-4 rounded focus:outline-none focus:shadow-outline", 
+                    text: "Annulla"},
+            ]
+        }
         return (
             <>
                 <TitleComponent title="Pagina dei contatti" />
@@ -25,14 +38,7 @@ export default class ContactsComponent extends Component<any,any>{
                             <label htmlFor="message">Messaggio</label>
                             <textarea id="message"></textarea>
                         </div>
-                        <div className="flex justify-center sm:justify-evenly flex-col sm:flex-row">
-                            <button className="bg-blue-500 hover:bg-blue-700 text-white font-bold py-2 px-4 rounded focus:outline-none focus:shadow-outline" type="button">
-                                Invia
-                            </button>
-                            <button className="bg-red-500 hover:bg-red-700 text-white font-bold py-2 px-4 rounded focus:outline-none focus:shadow-outline" type="button">
-                                Annulla
-                            </button>
-                        </div>
+                        <TwoButtonsComponent {...tb_props} />
                     </form>
                 </div>
             </>
