@@ -15,6 +15,13 @@ namespace Types{
         label_text: string, input_id: string, input_type: string
     }
 
+    /**
+     * LabelTextAreaComponent props
+     */
+    export type LabelTextAreaProps = {
+        label_text: string, textarea_id: string
+    }
+
     export type MenuItem = {
         id: number, link: string, title: string
     }
