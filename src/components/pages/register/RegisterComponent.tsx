@@ -4,6 +4,7 @@ import TwoButtonsComponent from '../../partials/buttons/twobuttons/TwoButtonsCom
 import CheckBoxComponent from '../../partials/checkbox/CheckBoxComponent'
 import LabelInputComponent from '../../partials/labelinput/LabelInputComponent'
 import TitleComponent from '../../partials/title/TitleComponent'
+import './RegisterComponent.sass'
 
 export default class RegisterComponent extends Component {
 

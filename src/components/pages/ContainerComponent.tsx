@@ -8,6 +8,7 @@ import BlogComponent from "./blog/BlogComponent";
 import ContactsComponent from "./contacts/ContactsComponent";
 import NotFoundComponent from "./not_found/NotFoundComponent";
 import LoginComponent from "./login/LoginComponent";
+import RegisterComponent from "./register/RegisterComponent";
 
 export default class ContainerComponent extends Component<any,any>{
 
@@ -25,6 +26,7 @@ export default class ContainerComponent extends Component<any,any>{
                     <Route path="blog" element={<BlogComponent />} />
                     <Route path="contacts" element={<ContactsComponent />} />
                     <Route path="login" element={<LoginComponent />} />
+                    <Route path="register" element={<RegisterComponent />} />
                     <Route path="*" element={<NotFoundComponent />} />        
                 </Routes>    
             </div>

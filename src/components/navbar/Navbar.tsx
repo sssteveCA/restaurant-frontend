@@ -1,5 +1,6 @@
 
 import React from 'react'
+import { Link } from 'react-router-dom';
 import { NavLink } from 'react-router-dom';
 import Types from '../../constants/types';
 import './Navbar.sass'
@@ -16,7 +17,7 @@ export default class Navbar extends React.Component<any,any>{
 
     private readonly menu_not_logged: Types.MenuItem[] = [
         {id: 5,title: 'Login', link: '/login'},
-        {id: 6,title: 'Registrati', link: '#'},
+        {id: 6,title: 'Registrati', link: '/register'},
     ]
 
     private readonly menu_logged: Types.MenuItem[] = [
