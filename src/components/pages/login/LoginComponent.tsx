@@ -43,8 +43,6 @@ export default class LoginComponent extends Component<any,Types.LoginState>{
       }
 
     onPrimaryButtonClick(): void{
-        console.log("Lc onPrimaryButtonClick")
-        console.log(this.state)
         const lr_data: LoginRequestType = {
             email: this.state.email, password: this.state.password, url: Paths.URL_BASE+Paths.URL_LOGIN
         }

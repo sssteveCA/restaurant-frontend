@@ -9,7 +9,6 @@ class TwoButtonsComponent extends Component<Types.TwoButtonsProps, any> {
     }
 
     onPrimaryButtonClick(): void{
-        console.log("Tbc onPrimaryButtonClick")
         this.props.onPrimaryButtonClick()
     }
 

@@ -46,8 +46,6 @@ export default class ContactsComponent extends Component<any,Types.ContactsState
     }
 
     onPrimaryButtonClick(): void{
-        console.log("Cc onPrimaryButtonClick")
-        console.log(this.state)
         let cr_data: ContactsRequestType = {
             email: this.state.email,
             message: this.state.message,
