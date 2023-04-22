@@ -13,10 +13,16 @@ export default class LoginComponent extends Component<any,Types.LoginState>{
     constructor(props: any){
         super(props);
         this.state = {
-            email: '', password: ''
+            email: '', password: '', password_type: 'password'
         }
+        this.onCheckBoxChange = this.onCheckBoxChange.bind(this)
         this.onInputChange = this.onInputChange.bind(this)
         this.onPrimaryButtonClick = this.onPrimaryButtonClick.bind(this)
+    }
+
+    onCheckBoxChange(checked: boolean): void{
+        if(checked)this.setState({password_type: 'text'})
+        else this.setState({password_type: 'password'})
     }
 
     onInputChange(id: string, value: string): void{
@@ -38,7 +44,7 @@ export default class LoginComponent extends Component<any,Types.LoginState>{
         }
         const lr: LoginRequest = new LoginRequest(lr_data)
         lr.login().then(obj => {
-            
+
         })
     }
 
@@ -60,8 +66,8 @@ export default class LoginComponent extends Component<any,Types.LoginState>{
                 <div id="login-container">
                     <form>
                         <LabelInputComponent input_id="email" input_type="text" label_text="Email" onInputChange={this.onInputChange} />
-                        <LabelInputComponent input_id="password" input_type="password" label_text="Password" onInputChange={this.onInputChange} />
-                        <CheckBoxComponent checkbox_id="show-password" label_text="Mostra password" />
+                        <LabelInputComponent input_id="password" input_type={this.state.password_type} label_text="Password" onInputChange={this.onInputChange} />
+                        <CheckBoxComponent checkbox_id="show-password" label_text="Mostra password" onCbChange={this.onCheckBoxChange} />
                         <TwoButtonsComponent {...tb_props} />
                     </form>
                     

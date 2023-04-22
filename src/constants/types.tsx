@@ -5,7 +5,7 @@ namespace Types{
      * CheckBoxComponent props
      */
     export type CheckBoxProps = {
-        checkbox_id: string, label_text: string
+        checkbox_id: string, label_text: string, onCbChange: (checked: boolean) => void
     }
 
     /**
@@ -40,7 +40,7 @@ namespace Types{
      * LoginComponent state
      */
     export type LoginState = {
-        email: string, password: string
+        email: string, password: string, password_type: string
     }
 
     export type MenuItem = {

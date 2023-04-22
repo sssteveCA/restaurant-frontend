@@ -19,6 +19,10 @@ export default class RegisterComponent extends Component<any,Types.RegisterState
     this.onPrimaryButtonClick = this.onPrimaryButtonClick.bind(this)
   }
 
+  onCheckBoxChange(): void{
+
+  }
+
   onInputChange(id: string, value: string): void{
     switch(id){
       case 'first-name':
@@ -77,7 +81,7 @@ export default class RegisterComponent extends Component<any,Types.RegisterState
                 <LabelInputComponent input_id='email' input_type='email' label_text='Indirizzo email' onInputChange={this.onInputChange} />
                 <LabelInputComponent input_id='password' input_type='password' label_text='Password' onInputChange={this.onInputChange} />
                 <LabelInputComponent input_id='conf-password' input_type='password' label_text='Conferma password' onInputChange={this.onInputChange}/>
-                <CheckBoxComponent checkbox_id='show-password' label_text='Mostra password' />
+                <CheckBoxComponent checkbox_id='show-password' label_text='Mostra password' onCbChange={this.onCheckBoxChange} />
                 <TwoButtonsComponent {...tb_props} />
             </form>
         </div>
