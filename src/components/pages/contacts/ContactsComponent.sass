@@ -1,9 +1,18 @@
+@use "../../../sass/modules/transition"
 
 @mixin contacts-style()
     div#contacts-container
+        position: relative
+        top: -20px
+        opacity: 0
+        @include transition.transition(transition.$transition-map)
+        &.my-transition
+            top: 0px
+            opacity: 1
         form
             >div
                 margin: 30px 0px
+        
 
 
 @include contacts-style()

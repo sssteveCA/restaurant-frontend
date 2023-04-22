@@ -11,21 +11,15 @@
         @include container-props()
         @include container-transition()
         &::before
-            @include container-before()  
-        .transition
-            opacity: 1
-            top: 0px
+            @include container-before($bg-url)  
+        &.my-transition
+            opacity: 1 !important
+            top: 0px !important
 
-@mixin container-transition()
-    $transition-map: (
-        'properties': top opacity,
-        'delay': 0s
-        'duration': 1.5s,
-        'timing function': linear
-    )
-    @include transition.transition($map: $transition-map)
+@mixin container-transition() 
+    @include transition.transition(transition.$transition-map)
 
-@mixin container-before()
+@mixin container-before($bg-url)
     content: ""
     background-image: url(#{$bg-url})
     background-size: cover

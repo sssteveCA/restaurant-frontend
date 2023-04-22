@@ -18,6 +18,12 @@ export default class ContactsComponent extends Component<any,Types.ContactsState
         this.onTextAreaChange = this.onTextAreaChange.bind(this)
     }
 
+    componentDidMount(): void {
+        setTimeout(()=>{
+            document.getElementById('contacts-container')?.classList.add('my-transition')
+        },100)
+    }
+
     onInputChange(id: string, value: string): void{
         switch(id){
             case 'name':
