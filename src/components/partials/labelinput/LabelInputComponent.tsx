@@ -23,7 +23,7 @@ class LabelInputComponent extends Component<Types.LabelInputProps,any> {
             <label className="block text-gray-700 text-sm font-bold mb-2" htmlFor={this.props.input_id}>{this.props.label_text}</label>
         </div>
         <div className="input-div col-start-2 col-span-10 md:col-span-7">
-            <input id={this.props.input_id} className="shadow appearance-none border rounded py-2 px-3 text-gray-700 leading-tight focus:outline-none focus:shadow-outline w-full" type={this.props.input_type} onChange={this.onInputChange} />
+            <input id={this.props.input_id} className="border-2 border-black focus:bg-yellow-200 shadow appearance-none border rounded py-2 px-3 text-gray-700 leading-tight focus:outline-none focus:shadow-outline w-full" type={this.props.input_type} onChange={this.onInputChange} />
         </div>      
     </div>
     )

@@ -20,10 +20,10 @@ class LabelTextareaComponent extends Component<Types.LabelTextAreaProps,any> {
      return (
       <div className="grid grid-cols-12 gap-4">
           <div className="label-div col-span-10 col-start-2 md:col-start-2 md:col-span-3">
-              <label htmlFor={this.props.textarea_id}>{this.props.label_text}</label>
+              <label className='block text-gray-700 text-sm font-bold mb-2' htmlFor={this.props.textarea_id}>{this.props.label_text}</label>
           </div>
           <div className="textarea-div col-start-2 col-span-10 md:col-span-7">
-              <textarea id={this.props.textarea_id} className='w-full' onChange={this.onTextAreaChange}></textarea>
+              <textarea id={this.props.textarea_id} className='w-full border-2 border-black focus:bg-yellow-200' onChange={this.onTextAreaChange}></textarea>
           </div>   
       </div>
     ) 
