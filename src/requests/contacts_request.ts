@@ -1,3 +1,4 @@
+import axios from 'axios'
 
 export type ContactsRequestType = {
     email: string, message: string, name: string, subject: string, url: string
@@ -44,5 +45,35 @@ export class ContactsRequest{
         this._name = data.name;
         this._subject = data.subject;
         this._url = data.url;
+    }
+
+    public async contacts(): Promise<object>{
+        let response: object = {}
+        this._errno = 0;
+        try{
+            await this.contactsPromise().then(res => {
+                response = JSON.parse(res)
+            }).catch(err => {
+                throw err;
+            })
+        }catch(e){
+            if(e instanceof axios.AxiosError){
+                let string_error: string = e.response?.data;
+                response = JSON.parse(string_error)
+            }
+            else{
+                this._errno = 0;
+                response = { done: false, message: this.error }
+            }
+        }
+        return response;
+    }
+
+    private async contactsPromise(): Promise<string>{
+        return await new Promise<string>((resolve,reject)=> {
+            axios.post(this.url,{
+                email: this._email, message: this._message, name: this._name, subject: this._subject
+            }).then(res => resolve(res.data)).catch(err => reject(err))
+        })
     }
 }
