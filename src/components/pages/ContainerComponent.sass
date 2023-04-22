@@ -1,6 +1,7 @@
 
 @use "sass:map"
 @use "sass:string"
+@use "../../sass/modules/transition"
 @use "../../sass/modules/globals"
 @import "../../sass/partials/extend"
 
@@ -13,7 +14,8 @@
         display: flex
         justify-content: center
         flex-direction: column
-        padding: 40px 20px 
+        padding: 40px 20px
+        @include container-transition()
         &::before
             content: ""
             background-image: url(#{$bg-url})
@@ -22,5 +24,15 @@
             @extend %stretch
             opacity: 0.5
             z-index: -1
+
+@mixin container-transition()
+    $transition-map: (
+        'properties': top opacity,
+        'delay': 0s
+        'duration': 1.5s,
+        'timing function': linear
+    )
+    @include transition.transition($map: $transition-map)
+    
 
 @include container-style()
