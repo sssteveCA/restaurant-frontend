@@ -5,7 +5,7 @@
 
 $transition-map: ('properties': 'top, opacity','delay': 0s,'duration': 1s,'timing function': linear)
 
-@mixin transition($map)
+@mixin transition($map: $transition-map)
     $properties: map.get($map,'properties')
     $delay: map.get($map,'delay')
     $duration: map.get($map,'duration')

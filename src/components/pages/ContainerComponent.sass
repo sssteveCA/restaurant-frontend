@@ -9,15 +9,12 @@
     $bg-url: map.get(globals.$urls,"background")
     div#page-container
         @include container-props()
-        @include container-transition()
         &::before
             @include container-before($bg-url)  
         &.my-transition
             opacity: 1 !important
             top: 0px !important
 
-@mixin container-transition() 
-    @include transition.transition(transition.$transition-map)
 
 @mixin container-before($bg-url)
     content: ""

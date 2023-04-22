@@ -20,6 +20,12 @@ export default class RegisterComponent extends Component<any,Types.RegisterState
     this.onPrimaryButtonClick = this.onPrimaryButtonClick.bind(this)
   }
 
+  componentDidMount(): void {
+    setTimeout(()=>{
+        document.getElementById('register-container')?.classList.add('my-transition')
+    },100)
+}
+
   onCheckBoxChange(checked: boolean): void{
     if(checked)this.setState({passwords_type: 'text'})
     else this.setState({passwords_type: 'password'})
