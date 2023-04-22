@@ -13,14 +13,16 @@ export default class RegisterComponent extends Component<any,Types.RegisterState
   constructor(props: any){
     super(props)
     this.state = {
-      first_name: '', last_name: '', email: '', password: '', conf_password: ''
+      first_name: '', last_name: '', email: '', password: '', conf_password: '', passwords_type: 'password'
     }
+    this.onCheckBoxChange = this.onCheckBoxChange.bind(this)
     this.onInputChange = this.onInputChange.bind(this)
     this.onPrimaryButtonClick = this.onPrimaryButtonClick.bind(this)
   }
 
-  onCheckBoxChange(): void{
-
+  onCheckBoxChange(checked: boolean): void{
+    if(checked)this.setState({passwords_type: 'text'})
+    else this.setState({passwords_type: 'password'})
   }
 
   onInputChange(id: string, value: string): void{
@@ -79,8 +81,8 @@ export default class RegisterComponent extends Component<any,Types.RegisterState
                 <LabelInputComponent input_id='first-name' input_type='text' label_text='Nome' onInputChange={this.onInputChange} />
                 <LabelInputComponent input_id='last-name' input_type='text' label_text='Cognome' onInputChange={this.onInputChange} />
                 <LabelInputComponent input_id='email' input_type='email' label_text='Indirizzo email' onInputChange={this.onInputChange} />
-                <LabelInputComponent input_id='password' input_type='password' label_text='Password' onInputChange={this.onInputChange} />
-                <LabelInputComponent input_id='conf-password' input_type='password' label_text='Conferma password' onInputChange={this.onInputChange}/>
+                <LabelInputComponent input_id='password' input_type={this.state.passwords_type} label_text='Password' onInputChange={this.onInputChange} />
+                <LabelInputComponent input_id='conf-password' input_type={this.state.passwords_type} label_text='Conferma password' onInputChange={this.onInputChange}/>
                 <CheckBoxComponent checkbox_id='show-password' label_text='Mostra password' onCbChange={this.onCheckBoxChange} />
                 <TwoButtonsComponent {...tb_props} />
             </form>
