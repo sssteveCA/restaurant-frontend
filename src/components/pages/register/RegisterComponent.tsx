@@ -11,7 +11,7 @@ export default class RegisterComponent extends Component<any,Types.RegisterState
   constructor(props: any){
     super(props)
     this.state = {
-      username: '', email: '', password: '', conf_password: ''
+      first_name: '', last_name: '', email: '', password: '', conf_password: ''
     }
     this.onInputChange = this.onInputChange.bind(this)
     this.onPrimaryButtonClick = this.onPrimaryButtonClick.bind(this)
@@ -19,8 +19,11 @@ export default class RegisterComponent extends Component<any,Types.RegisterState
 
   onInputChange(id: string, value: string): void{
     switch(id){
-      case 'username':
-        this.setState({username: value})
+      case 'first-name':
+        this.setState({first_name: value})
+        break
+      case 'last-name':
+        this.setState({last_name: value})
         break
       case 'email':
         this.setState({email: value})
@@ -59,7 +62,8 @@ export default class RegisterComponent extends Component<any,Types.RegisterState
         <TitleComponent title='Registrati' />
         <div id="register-container">
             <form>
-                <LabelInputComponent input_id='username' input_type='text' label_text='Nome utente' onInputChange={this.onInputChange} />
+                <LabelInputComponent input_id='first-name' input_type='text' label_text='Nome' onInputChange={this.onInputChange} />
+                <LabelInputComponent input_id='last-name' input_type='text' label_text='Cognome' onInputChange={this.onInputChange} />
                 <LabelInputComponent input_id='email' input_type='email' label_text='Indirizzo email' onInputChange={this.onInputChange} />
                 <LabelInputComponent input_id='password' input_type='password' label_text='Password' onInputChange={this.onInputChange} />
                 <LabelInputComponent input_id='conf-password' input_type='password' label_text='Conferma password' onInputChange={this.onInputChange}/>
