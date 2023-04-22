@@ -5,6 +5,8 @@ import LabelInputComponent from "../../partials/labelinput/LabelInputComponent";
 import LabelTextareaComponent from "../../partials/labeltextarea/LabelTextareaComponent";
 import TitleComponent from "../../partials/title/TitleComponent";
 import './ContactsComponent.sass';
+import { ContactsRequest, ContactsRequestType } from "../../../requests/contacts_request";
+import { Paths } from "../../../constants/paths";
 
 export default class ContactsComponent extends Component<any,Types.ContactsState>{
 
@@ -46,6 +48,17 @@ export default class ContactsComponent extends Component<any,Types.ContactsState
     onPrimaryButtonClick(): void{
         console.log("Cc onPrimaryButtonClick")
         console.log(this.state)
+        let cr_data: ContactsRequestType = {
+            email: this.state.email,
+            message: this.state.message,
+            name: this.state.name,
+            subject: "Richiesta informazioni",
+            url: Paths.URL_BASE+Paths.URL_CONTACTS
+        }
+        let cr: ContactsRequest = new ContactsRequest(cr_data)
+        cr.contacts().then(obj => {
+
+        })
     }
 
     render(): React.ReactNode {
