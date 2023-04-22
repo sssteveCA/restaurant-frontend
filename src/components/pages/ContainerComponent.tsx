@@ -16,6 +16,10 @@ export default class ContainerComponent extends Component<any,any>{
         super(props);
     }
 
+    componentDidMount(): void {
+        document.getElementById('page-container')?.classList.add('transition')
+    }
+
     render(): React.ReactNode {
         return (
             <div id="page-container">
