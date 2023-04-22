@@ -40,7 +40,7 @@ namespace Types{
      * LoginComponent state
      */
     export type LoginState = {
-        username: string, password: string
+        email: string, password: string
     }
 
     export type MenuItem = {

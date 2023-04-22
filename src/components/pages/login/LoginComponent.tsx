@@ -5,13 +5,15 @@ import CheckBoxComponent from "../../partials/checkbox/CheckBoxComponent";
 import LabelInputComponent from "../../partials/labelinput/LabelInputComponent";
 import TitleComponent from "../../partials/title/TitleComponent";
 import './LoginComponent.sass'
+import { LoginRequest, LoginRequestType } from "../../../requests/login_request";
+import { Paths } from "../../../constants/paths";
 
 export default class LoginComponent extends Component<any,Types.LoginState>{
 
     constructor(props: any){
         super(props);
         this.state = {
-            username: '', password: ''
+            email: '', password: ''
         }
         this.onInputChange = this.onInputChange.bind(this)
         this.onPrimaryButtonClick = this.onPrimaryButtonClick.bind(this)
@@ -19,8 +21,8 @@ export default class LoginComponent extends Component<any,Types.LoginState>{
 
     onInputChange(id: string, value: string): void{
         switch(id){
-            case 'username':
-                this.setState({username: value})
+            case 'email':
+                this.setState({email: value})
                 break
             case 'password':
                 this.setState({password: value})
@@ -31,6 +33,13 @@ export default class LoginComponent extends Component<any,Types.LoginState>{
     onPrimaryButtonClick(): void{
         console.log("Lc onPrimaryButtonClick")
         console.log(this.state)
+        const lr_data: LoginRequestType = {
+            email: this.state.email, password: this.state.password, url: Paths.URL_BASE+Paths.URL_LOGIN
+        }
+        const lr: LoginRequest = new LoginRequest(lr_data)
+        lr.login().then(obj => {
+            
+        })
     }
 
     render(): ReactNode {
@@ -50,7 +59,7 @@ export default class LoginComponent extends Component<any,Types.LoginState>{
                <TitleComponent title="Login" />
                 <div id="login-container">
                     <form>
-                        <LabelInputComponent input_id="username" input_type="text" label_text="Username" onInputChange={this.onInputChange} />
+                        <LabelInputComponent input_id="email" input_type="text" label_text="Email" onInputChange={this.onInputChange} />
                         <LabelInputComponent input_id="password" input_type="password" label_text="Password" onInputChange={this.onInputChange} />
                         <CheckBoxComponent checkbox_id="show-password" label_text="Mostra password" />
                         <TwoButtonsComponent {...tb_props} />

@@ -50,7 +50,6 @@ export default class RegisterComponent extends Component<any,Types.RegisterState
     }
     const rr: RegisterRequest = new RegisterRequest(rr_data)
     rr.register().then(obj => {
-      console.log(obj)
     })
   }
 
