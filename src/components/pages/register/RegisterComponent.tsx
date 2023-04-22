@@ -33,8 +33,7 @@ export default class RegisterComponent extends Component<any,Types.RegisterState
         break
       case 'conf-password':
         this.setState({conf_password: value})
-        break
-      
+        break  
     }
   }
 

@@ -50,10 +50,38 @@ export class RegisterRequest{
         this._url = data.url;
     }
 
+    public async register(): Promise<object>{
+        let response: object = {}
+        this._errno = 0;
+        try{
+            await this.registerPromise().then(res => {
+                response = JSON.parse(res)
+            }).catch(err =>{
+                throw err
+            })
+        }catch(err){
+            if(err instanceof axios.AxiosError){
+                let string_error: string = err.response?.data
+                response = JSON.parse(string_error)
+            }
+            else{
+                this._errno = RegisterRequest.ERR_FETCH
+                response = {
+                    done: false, message: this.error
+                }
+            }
+        }
+        return response;
+    }
+
     private async registerPromise(): Promise<string>{
         return await new Promise<string>((resolve,reject) => {
             axios.post(this._url,{
-
+                firstName: this._first_name,
+                lastName: this._last_name,
+                email: this._email,
+                password: this._password,
+                confPassword: this._conf_password
             }).then(res => resolve(res.data)).catch(err => reject(err))
         });
     }
