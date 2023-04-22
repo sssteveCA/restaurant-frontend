@@ -19,11 +19,11 @@ class LabelInputComponent extends Component<Types.LabelInputProps,any> {
   render(): React.ReactNode {
       return (
     <div className="grid grid-cols-12 gap-4">
-        <div className='label-div columns-12 md:columns-3 md:col-start-2'>
+        <div className='label-div col-span-10 col-start-2 md:col-start-2 md:col-span-3'>
             <label className="block text-gray-700 text-sm font-bold mb-2" htmlFor={this.props.input_id}>{this.props.label_text}</label>
         </div>
-        <div className="input-div columns-12 md:columns-7">
-            <input id={this.props.input_id} className="shadow appearance-none border rounded py-2 px-3 text-gray-700 leading-tight focus:outline-none focus:shadow-outline" type={this.props.input_type} onChange={this.onInputChange} />
+        <div className="input-div col-start-2 col-span-10 md:col-span-7">
+            <input id={this.props.input_id} className="shadow appearance-none border rounded py-2 px-3 text-gray-700 leading-tight focus:outline-none focus:shadow-outline w-full" type={this.props.input_type} onChange={this.onInputChange} />
         </div>      
     </div>
     )
