@@ -20,6 +20,12 @@ export default class LoginComponent extends Component<any,Types.LoginState>{
         this.onPrimaryButtonClick = this.onPrimaryButtonClick.bind(this)
     }
 
+    componentDidMount(): void {
+        setTimeout(()=>{
+            document.getElementById('login-container')?.classList.add('my-transition')
+        },100)
+    }
+
     onCheckBoxChange(checked: boolean): void{
         if(checked)this.setState({password_type: 'text'})
         else this.setState({password_type: 'password'})
