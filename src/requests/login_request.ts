@@ -1,3 +1,4 @@
+import axios from 'axios'
 
 export type LoginRequestType = {
     email: string; password: string, url: string
@@ -34,5 +35,37 @@ export class LoginRequest{
                 break
         }
         return this._error; 
+    }
+
+    public async login(): Promise<object>{
+        let response: object = {}
+        this._errno = 0;
+        try{
+            await this.loginPromise().then(res => {
+                response = JSON.parse(res)
+            }).catch(err => {
+                throw err;
+            })
+        }catch(err){
+            if(err instanceof axios.AxiosError){
+                let string_error: string = err.response?.data;
+                response = JSON.parse(string_error)
+            }
+            else{
+                this._errno = LoginRequest.ERR_FETCH;
+                response = {
+                    done: false, message: this.error
+                }
+            }
+        }
+        return response
+    }
+
+    private async loginPromise(): Promise<string>{
+        return await new Promise<string>((resolve,reject) => {
+            axios.post(this._url,{
+                email: this._email, password: this._password
+            }).then(res => resolve(res.data)).catch(err => reject(err))
+        })
     }
 }
