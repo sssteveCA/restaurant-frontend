@@ -1,5 +1,6 @@
 import React, { Component, SyntheticEvent } from 'react'
 import Types from '../../../constants/types'
+import './LabelTextareaComponent.sass'
 
 class LabelTextareaComponent extends Component<Types.LabelTextAreaProps,any> {
 
@@ -18,11 +19,11 @@ class LabelTextareaComponent extends Component<Types.LabelTextAreaProps,any> {
   render(): React.ReactNode {
      return (
       <div className="grid grid-cols-12 gap-4">
-          <div className="label-div columns-12 md:columns-3 md:col-start-2">
+          <div className="label-div col-span-10 col-start-2 md:col-start-2 md:col-span-3">
               <label htmlFor={this.props.textarea_id}>{this.props.label_text}</label>
           </div>
-          <div className="textarea-div columns-12 md:columns-7">
-              <textarea id={this.props.textarea_id} onChange={this.onTextAreaChange}></textarea>
+          <div className="textarea-div col-start-2 col-span-10 md:col-span-7">
+              <textarea id={this.props.textarea_id} className='w-full' onChange={this.onTextAreaChange}></textarea>
           </div>   
       </div>
     ) 
