@@ -5,6 +5,8 @@ import CheckBoxComponent from '../../partials/checkbox/CheckBoxComponent'
 import LabelInputComponent from '../../partials/labelinput/LabelInputComponent'
 import TitleComponent from '../../partials/title/TitleComponent'
 import './RegisterComponent.sass'
+import { RegisterRequest, RegisterRequestType } from '../../../requests/register_request'
+import { Paths } from '../../../constants/paths'
 
 export default class RegisterComponent extends Component<any,Types.RegisterState> {
 
@@ -38,8 +40,18 @@ export default class RegisterComponent extends Component<any,Types.RegisterState
   }
 
   onPrimaryButtonClick(): void{
-    console.log("Rc onPrimaryButtonClick")
-    console.log(this.state)
+    const rr_data: RegisterRequestType = {
+      first_name: this.state.first_name,
+      last_name: this.state.last_name,
+      email: this.state.email,
+      password: this.state.password,
+      conf_password: this.state.conf_password,
+      url: Paths.URL_BASE+Paths.URL_REGISTER
+    }
+    const rr: RegisterRequest = new RegisterRequest(rr_data)
+    rr.register().then(obj => {
+      console.log(obj)
+    })
   }
 
   render() {
