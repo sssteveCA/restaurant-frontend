@@ -1,0 +1,24 @@
+
+@use "sass:list"
+@use "sass:map"
+@use "sass:string"
+
+@mixin transition($map)
+    $properties: map.get($map,'properties')
+    $delay: map.get($map,'delay')
+    $duration: map.get($map,'duration')
+    $timing-function: map.get($map,'timing function')
+    $properties-length: list.length($properties)
+    $i: 1
+    $str-prop: ''
+    @while $i <= $properties-length
+        $prop-item: list.index($prop,$i)
+        $str-prop-lenght: string.length($str-properties)
+        $str-prop: string.insert($str-properties, $prop-item, $str-prop-length)
+        $i: $i + 1
+    transition-property: $str-prop
+    transition-delay: $delay
+    transition-duration: $duration
+    transition-timing-function: $timing-function
+
+    
