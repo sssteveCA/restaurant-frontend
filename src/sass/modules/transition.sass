@@ -4,6 +4,8 @@
 @use "sass:string"
 
 @mixin transition($map)
+    @debug "transition map"
+    @debug $map
     $properties: map.get($map,'properties')
     $delay: map.get($map,'delay')
     $duration: map.get($map,'duration')
