@@ -47,16 +47,16 @@ export class LoginRequest{
                 throw err;
             })
         }catch(err){
-            if(err instanceof axios.AxiosError){
+            /* if(err instanceof axios.AxiosError){
                 let string_error: string = err.response?.data;
                 response = JSON.parse(string_error)
             }
-            else{
+            else{ */
                 this._errno = LoginRequest.ERR_FETCH;
                 response = {
                     done: false, message: this.error
                 }
-            }
+            //}
         }
         return response
     }

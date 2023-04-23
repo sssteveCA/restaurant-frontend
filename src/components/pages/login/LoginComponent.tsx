@@ -51,7 +51,7 @@ export default class LoginComponent extends Component<any,Types.LoginState>{
         }
         const lr: LoginRequest = new LoginRequest(lr_data)
         lr.login().then(obj => {
-            if(obj[Keys.KEY_DONE]) this.setState({login_message: obj[Keys.KEY_MESSAGE] as string})
+            if(!obj[Keys.KEY_DONE]) this.setState({login_message: obj[Keys.KEY_MESSAGE] as string})
         })
     }
 

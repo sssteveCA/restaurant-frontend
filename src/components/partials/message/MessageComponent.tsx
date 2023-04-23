@@ -3,7 +3,7 @@ import Types from '../../../constants/types'
 
 const MessageComponent = (props: Types.MessageProps) => {
 
-    let classes: string = "bg-red-600 text-sm font-bold";
+    let classes: string = "text-red-600 text-sm font-bold";
     if('classes' in props)classes = props.classes as string;
  
 
