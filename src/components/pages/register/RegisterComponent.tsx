@@ -7,13 +7,15 @@ import TitleComponent from '../../partials/title/TitleComponent'
 import './RegisterComponent.sass'
 import { RegisterRequest, RegisterRequestType } from '../../../requests/register_request'
 import { Paths } from '../../../constants/paths'
+import { Keys } from '../../../constants/keys'
+import MessageComponent from '../../partials/message/MessageComponent'
 
 export default class RegisterComponent extends Component<any,Types.RegisterState> {
 
   constructor(props: any){
     super(props)
     this.state = {
-      first_name: '', last_name: '', email: '', password: '', conf_password: '', passwords_type: 'password'
+      first_name: '', last_name: '', email: '', password: '', conf_password: '', passwords_type: 'password', register_message: ''
     }
     this.onCheckBoxChange = this.onCheckBoxChange.bind(this)
     this.onInputChange = this.onInputChange.bind(this)
@@ -52,6 +54,7 @@ export default class RegisterComponent extends Component<any,Types.RegisterState
   }
 
   onPrimaryButtonClick(): void{
+    this.setState({register_message: ''})
     const rr_data: RegisterRequestType = {
       first_name: this.state.first_name,
       last_name: this.state.last_name,
@@ -62,6 +65,7 @@ export default class RegisterComponent extends Component<any,Types.RegisterState
     }
     const rr: RegisterRequest = new RegisterRequest(rr_data)
     rr.register().then(obj => {
+      if(!obj[Keys.KEY_DONE]) this.setState({register_message: obj[Keys.KEY_MESSAGE]})
     })
   }
 
@@ -91,6 +95,7 @@ export default class RegisterComponent extends Component<any,Types.RegisterState
                 <LabelInputComponent input_id='conf-password' input_type={this.state.passwords_type} label_text='Conferma password' onInputChange={this.onInputChange}/>
                 <CheckBoxComponent checkbox_id='show-password' label_text='Mostra password' onCbChange={this.onCheckBoxChange} />
                 <TwoButtonsComponent {...tb_props} />
+                <MessageComponent message={this.state.register_message} />
             </form>
         </div>
       </>

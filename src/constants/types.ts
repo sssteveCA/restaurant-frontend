@@ -59,7 +59,7 @@ namespace Types{
      * RegisterComponent state
      */
     export type RegisterState = {
-        first_name: string, last_name: string, email: string, password: string, conf_password: string, passwords_type: string
+        first_name: string, last_name: string, email: string, password: string, conf_password: string, passwords_type: string, register_message: string
     }
 
     /**

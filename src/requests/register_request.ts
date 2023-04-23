@@ -50,7 +50,7 @@ export class RegisterRequest{
         this._url = data.url;
     }
 
-    public async register(): Promise<object>{
+    public async register(): Promise<{[index: string]: any}>{
         let response: object = {}
         this._errno = 0;
         try{
@@ -60,16 +60,16 @@ export class RegisterRequest{
                 throw err
             })
         }catch(err){
-            if(err instanceof axios.AxiosError){
+            /* if(err instanceof axios.AxiosError){
                 let string_error: string = err.response?.data
                 response = JSON.parse(string_error)
             }
-            else{
+            else{ */
                 this._errno = RegisterRequest.ERR_FETCH
                 response = {
                     done: false, message: this.error
                 }
-            }
+            //}
         }
         return response;
     }
