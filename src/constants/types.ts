@@ -19,7 +19,7 @@ namespace Types{
      * ContactsComponent state
      */
     export type ContactsState = {
-        contacts_message: string, email: string, message: string, name: string 
+        contacts_message: string, email: string, message: string, name: string, show_spinner: boolean
     }
 
     /**
@@ -40,7 +40,7 @@ namespace Types{
      * LoginComponent state
      */
     export type LoginState = {
-        email: string, password: string, login_message: string, password_type: string
+        email: string, password: string, login_message: string, password_type: string, show_spinner: boolean
     }
 
 
@@ -59,7 +59,14 @@ namespace Types{
      * RegisterComponent state
      */
     export type RegisterState = {
-        first_name: string, last_name: string, email: string, password: string, conf_password: string, passwords_type: string, register_message: string
+        first_name: string, last_name: string, email: string, password: string, conf_password: string, passwords_type: string, register_message: string, show_spinner: boolean
+    }
+
+    /**
+     * SpinnerComponent props
+     */
+    export type SpinnerProps = {
+        visible: boolean
     }
 
     /**
@@ -70,7 +77,8 @@ namespace Types{
             { classes: string, text: string },
             { classes: string, text: string },
         ],
-        onPrimaryButtonClick(): void
+        onPrimaryButtonClick(): void,
+        show_spinner: boolean
     }
 }
 

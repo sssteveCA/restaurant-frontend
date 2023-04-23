@@ -15,7 +15,7 @@ export default class LoginComponent extends Component<any,Types.LoginState>{
     constructor(props: any){
         super(props);
         this.state = {
-            email: '', password: '', login_message: '', password_type: 'password'
+            email: '', password: '', login_message: '', password_type: 'password', show_spinner: false
         }
         this.onCheckBoxChange = this.onCheckBoxChange.bind(this)
         this.onInputChange = this.onInputChange.bind(this)
@@ -50,7 +50,9 @@ export default class LoginComponent extends Component<any,Types.LoginState>{
             email: this.state.email, password: this.state.password, url: Paths.URL_BASE+Paths.URL_LOGIN
         }
         const lr: LoginRequest = new LoginRequest(lr_data)
+        this.setState({show_spinner: true})
         lr.login().then(obj => {
+            this.setState({show_spinner: false})
             if(!obj[Keys.KEY_DONE]) this.setState({login_message: obj[Keys.KEY_MESSAGE] as string})
         })
     }
@@ -65,7 +67,8 @@ export default class LoginComponent extends Component<any,Types.LoginState>{
                     classes: "bg-red-500 hover:bg-red-700 text-white font-bold py-2 px-4 rounded focus:outline-none focus:shadow-outline", 
                     text: "Annulla"},
             ],
-            onPrimaryButtonClick: this.onPrimaryButtonClick
+            onPrimaryButtonClick: this.onPrimaryButtonClick,
+            show_spinner: this.state.show_spinner
         }
         return (
             <>

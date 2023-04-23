@@ -1,5 +1,6 @@
 import React, { Component } from 'react'
 import Types from '../../../../constants/types'
+import SpinnerComponent from '../../spinner/SpinnerComponent'
 
 class TwoButtonsComponent extends Component<Types.TwoButtonsProps, any> {
 
@@ -19,6 +20,7 @@ class TwoButtonsComponent extends Component<Types.TwoButtonsProps, any> {
             <button className={this.props.buttons[0].classes} type="button" onClick={this.onPrimaryButtonClick}>
                 {this.props.buttons[0].text}
             </button>
+            <SpinnerComponent visible={this.props.show_spinner} />
         </div>
         <div className='col-span-6 text-center'>
             <button className={this.props.buttons[1].classes} type="button" >

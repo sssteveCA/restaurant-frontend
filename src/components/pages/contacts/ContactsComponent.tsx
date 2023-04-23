@@ -15,7 +15,7 @@ export default class ContactsComponent extends Component<any,Types.ContactsState
     constructor(props: any){
         super(props)
         this.state = {
-           contacts_message: '', name: '', email: '', message: '' 
+           contacts_message: '', name: '', email: '', message: '', show_spinner: false
         }
         this.onInputChange = this.onInputChange.bind(this)
         this.onPrimaryButtonClick = this.onPrimaryButtonClick.bind(this)
@@ -57,7 +57,9 @@ export default class ContactsComponent extends Component<any,Types.ContactsState
             url: Paths.URL_BASE+Paths.URL_CONTACTS
         }
         let cr: ContactsRequest = new ContactsRequest(cr_data)
+        this.setState({show_spinner: true})
         cr.contacts().then(obj => {
+            this.setState({show_spinner: false})
             if(!obj[Keys.KEY_DONE]) this.setState({contacts_message: obj[Keys.KEY_MESSAGE]})
         })
     }
@@ -72,7 +74,8 @@ export default class ContactsComponent extends Component<any,Types.ContactsState
                     classes: "bg-red-500 hover:bg-red-700 text-white font-bold py-2 px-4 rounded focus:outline-none focus:shadow-outline", 
                     text: "Annulla"},
             ],
-            onPrimaryButtonClick: this.onPrimaryButtonClick
+            onPrimaryButtonClick: this.onPrimaryButtonClick,
+            show_spinner: this.state.show_spinner
         }
         return (
             <>

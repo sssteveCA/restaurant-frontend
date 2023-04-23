@@ -15,7 +15,7 @@ export default class RegisterComponent extends Component<any,Types.RegisterState
   constructor(props: any){
     super(props)
     this.state = {
-      first_name: '', last_name: '', email: '', password: '', conf_password: '', passwords_type: 'password', register_message: ''
+      first_name: '', last_name: '', email: '', password: '', conf_password: '', passwords_type: 'password', register_message: '', show_spinner: false
     }
     this.onCheckBoxChange = this.onCheckBoxChange.bind(this)
     this.onInputChange = this.onInputChange.bind(this)
@@ -64,7 +64,9 @@ export default class RegisterComponent extends Component<any,Types.RegisterState
       url: Paths.URL_BASE+Paths.URL_REGISTER
     }
     const rr: RegisterRequest = new RegisterRequest(rr_data)
+    this.setState({show_spinner: true})
     rr.register().then(obj => {
+      this.setState({show_spinner: false})
       if(!obj[Keys.KEY_DONE]) this.setState({register_message: obj[Keys.KEY_MESSAGE]})
     })
   }
@@ -80,7 +82,8 @@ export default class RegisterComponent extends Component<any,Types.RegisterState
                 classes: "bg-red-500 hover:bg-red-700 text-white font-bold py-2 px-4 rounded focus:outline-none focus:shadow-outline", 
                 text: "Annulla"},
         ],
-        onPrimaryButtonClick: this.onPrimaryButtonClick
+        onPrimaryButtonClick: this.onPrimaryButtonClick,
+        show_spinner: this.state.show_spinner
     }
 
     return (
