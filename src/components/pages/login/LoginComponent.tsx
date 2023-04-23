@@ -7,13 +7,15 @@ import TitleComponent from "../../partials/title/TitleComponent";
 import './LoginComponent.sass'
 import { LoginRequest, LoginRequestType } from "../../../requests/login_request";
 import { Paths } from "../../../constants/paths";
+import { Keys } from "../../../constants/keys";
+import MessageComponent from "../../partials/message/MessageComponent";
 
 export default class LoginComponent extends Component<any,Types.LoginState>{
 
     constructor(props: any){
         super(props);
         this.state = {
-            email: '', password: '', password_type: 'password'
+            email: '', password: '', login_message: '', password_type: 'password'
         }
         this.onCheckBoxChange = this.onCheckBoxChange.bind(this)
         this.onInputChange = this.onInputChange.bind(this)
@@ -43,12 +45,13 @@ export default class LoginComponent extends Component<any,Types.LoginState>{
       }
 
     onPrimaryButtonClick(): void{
+        this.setState({login_message: ''})
         const lr_data: LoginRequestType = {
             email: this.state.email, password: this.state.password, url: Paths.URL_BASE+Paths.URL_LOGIN
         }
         const lr: LoginRequest = new LoginRequest(lr_data)
         lr.login().then(obj => {
-
+            if(obj[Keys.KEY_DONE]) this.setState({login_message: obj[Keys.KEY_MESSAGE] as string})
         })
     }
 
@@ -74,7 +77,7 @@ export default class LoginComponent extends Component<any,Types.LoginState>{
                         <CheckBoxComponent checkbox_id="show-password" label_text="Mostra password" onCbChange={this.onCheckBoxChange} />
                         <TwoButtonsComponent {...tb_props} />
                     </form>
-                    
+                    <MessageComponent message={this.state.login_message} />
                 </div> 
             </>
             

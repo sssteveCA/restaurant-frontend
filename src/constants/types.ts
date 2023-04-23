@@ -40,7 +40,7 @@ namespace Types{
      * LoginComponent state
      */
     export type LoginState = {
-        email: string, password: string, password_type: string
+        email: string, password: string, login_message: string, password_type: string
     }
 
 
@@ -52,7 +52,7 @@ namespace Types{
      * Message component props
      */
     export type MessageProps = {
-        classes?: string, hidden?: boolean, message: string
+        classes?: string, message: string
     }
 
     /**

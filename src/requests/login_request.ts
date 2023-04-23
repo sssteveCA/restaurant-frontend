@@ -37,7 +37,7 @@ export class LoginRequest{
         return this._error; 
     }
 
-    public async login(): Promise<object>{
+    public async login(): Promise<{[index: string]: any}>{
         let response: object = {}
         this._errno = 0;
         try{
