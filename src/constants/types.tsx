@@ -52,7 +52,7 @@ namespace Types{
      * Message component props
      */
     export type MessageProps = {
-        classes?: string, message: string
+        classes?: string, hidden?: boolean, message: string
     }
 
     /**
