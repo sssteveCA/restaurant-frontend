@@ -47,7 +47,7 @@ export class ContactsRequest{
         this._url = data.url;
     }
 
-    public async contacts(): Promise<object>{
+    public async contacts(): Promise<{[index: string]: any}>{
         let response: object = {}
         this._errno = 0;
         try{
@@ -57,14 +57,14 @@ export class ContactsRequest{
                 throw err;
             })
         }catch(e){
-            if(e instanceof axios.AxiosError){
+            /* if(e instanceof axios.AxiosError){
                 let string_error: string = e.response?.data;
                 response = JSON.parse(string_error)
             }
-            else{
-                this._errno = 0;
+            else{ */
+                this._errno = ContactsRequest.ERR_FETCH;
                 response = { done: false, message: this.error }
-            }
+            //}
         }
         return response;
     }

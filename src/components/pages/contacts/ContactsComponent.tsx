@@ -7,13 +7,15 @@ import TitleComponent from "../../partials/title/TitleComponent";
 import './ContactsComponent.sass';
 import { ContactsRequest, ContactsRequestType } from "../../../requests/contacts_request";
 import { Paths } from "../../../constants/paths";
+import { Keys } from "../../../constants/keys";
+import MessageComponent from "../../partials/message/MessageComponent";
 
 export default class ContactsComponent extends Component<any,Types.ContactsState>{
 
     constructor(props: any){
         super(props)
         this.state = {
-           name: '', email: '', message: '' 
+           contacts_message: '', name: '', email: '', message: '' 
         }
         this.onInputChange = this.onInputChange.bind(this)
         this.onPrimaryButtonClick = this.onPrimaryButtonClick.bind(this)
@@ -46,6 +48,7 @@ export default class ContactsComponent extends Component<any,Types.ContactsState
     }
 
     onPrimaryButtonClick(): void{
+        this.setState({contacts_message: ''})
         let cr_data: ContactsRequestType = {
             email: this.state.email,
             message: this.state.message,
@@ -55,7 +58,7 @@ export default class ContactsComponent extends Component<any,Types.ContactsState
         }
         let cr: ContactsRequest = new ContactsRequest(cr_data)
         cr.contacts().then(obj => {
-
+            if(!obj[Keys.KEY_DONE]) this.setState({contacts_message: obj[Keys.KEY_MESSAGE]})
         })
     }
 
@@ -80,6 +83,7 @@ export default class ContactsComponent extends Component<any,Types.ContactsState
                         <LabelInputComponent input_id="email" input_type="email" label_text="Email" onInputChange={this.onInputChange}/>
                         <LabelTextareaComponent label_text="Messaggio" textarea_id="message" onTextAreaChange={this.onTextAreaChange}  />
                         <TwoButtonsComponent {...tb_props} />
+                        <MessageComponent message={this.state.contacts_message} />
                     </form>
                 </div>
             </>

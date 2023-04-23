@@ -19,7 +19,7 @@ namespace Types{
      * ContactsComponent state
      */
     export type ContactsState = {
-        name: string, email: string, message: string 
+        contacts_message: string, email: string, message: string, name: string 
     }
 
     /**
@@ -52,7 +52,7 @@ namespace Types{
      * Message component props
      */
     export type MessageProps = {
-        classes?: string, message: string
+        message: string
     }
 
     /**
