@@ -16,7 +16,7 @@ class TwoButtonsComponent extends Component<Types.TwoButtonsProps, any> {
     render(): React.ReactNode {
         return (
     <div className="grid grid-cols-12 grid-rows-1 gap-4">
-        <div className='col-span-6 text-center'>
+        <div className='col-span-6 text-center flex justify-center items-center'>
             <button className={this.props.buttons[0].classes} type="button" onClick={this.onPrimaryButtonClick}>
                 {this.props.buttons[0].text}
             </button>
