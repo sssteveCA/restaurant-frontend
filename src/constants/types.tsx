@@ -43,8 +43,16 @@ namespace Types{
         email: string, password: string, password_type: string
     }
 
+
     export type MenuItem = {
         id: number, link: string, title: string
+    }
+
+    /**
+     * Message component props
+     */
+    export type MessageProps = {
+        classes?: string, message: string
     }
 
     /**
