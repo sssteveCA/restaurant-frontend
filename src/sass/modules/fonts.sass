@@ -1,0 +1,10 @@
+
+@use "sass:map"
+
+$font-info: ('family': '', 'url': '', )
+
+@mixin font($map: $font-info){
+    @if map.has-key($font-info, 'family') and map.has-key($font-info, 'url')
+        font-family: map-get($font-info, 'family')
+        src: url(map.get($font-info,'url'))
+}
