@@ -6,11 +6,14 @@ import ourfood from '../../../assets/images/ourfood_card.webp'
 import menu from '../../../assets/images/menu_card.jpg'
 import blog from '../../../assets/images/blog_card.jpg'
 import contacts from '../../../assets/images/contacts_logo.jpg'
+import './HomeCardContainerComponent.sass'
 
 export default class HomeCardContainerComponent extends Component<any,any>{
 
     componentDidMount(): void {
-        document.getElementById('home-card-container')?.classList.add('my-transition')
+        setTimeout(() => {
+            document.getElementById('home-card-container')?.classList.add('my-transition')
+        }, 100)
     }
 
     render(){

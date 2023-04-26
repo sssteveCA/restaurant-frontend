@@ -5,7 +5,7 @@ namespace Types{
      * AppareanceTextComponent props
      */
     export type AppareanceTextProps = {
-        text: string;
+        id: string, text: string;
     }
 
     /**

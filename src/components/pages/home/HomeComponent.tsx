@@ -7,7 +7,7 @@ const HomeComponent = () => {
   return (
     <>
       <TitleComponent title="Benvenuto" />
-      <AppareanceTextComponent text='Benvenuto nel nostro ristorante' />
+      <AppareanceTextComponent id='home-text' text='Benvenuto nel nostro ristorante' />
       <HomeCardContainerComponent />
     </>
     
