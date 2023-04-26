@@ -19,12 +19,10 @@ const HomeCardContainerComponent = () => {
 
 
   return (
-    <div id="home-card-container grid grid-cols-1 sm:grid-cols-2 md:grid-cols-3 lg:grid-cols-5">
+    <div id="home-card-container" className="grid grid-cols-1 sm:grid-cols-2 md:grid-cols-3 lg:grid-cols-5 gap-3">
         {
             card_props.map((item,i) => (
-                 <div key={i} className='home-card-item'>   
-                    <CardComponent {...item} />
-                </div>
+                    <CardComponent key={i} {...item} />
                 )
             )
         }
