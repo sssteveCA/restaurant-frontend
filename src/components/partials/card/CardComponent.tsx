@@ -5,10 +5,10 @@ import './CardComponent.sass'
 
 const CardComponent = (props: Types.CardProps) => {
     return (
-        <div className="card-div bg-white/[.05] border border-gray-200 rounded-lg shadow dark:bg-gray-800 dark:border-gray-700">
+        <div className="card-div bg-white/[.5] border border-gray-200 rounded-lg shadow dark:bg-gray-800 dark:border-gray-700">
             <img className="card-image rounded-t-lg" src={props.image} alt={props.title} />
-            <div className="p-5">
-                <h5 className="card-title mb-2 text-2xl font-bold tracking-tight text-gray-900 dark:text-white">{props.title}</h5>
+            <div className="sub-card-div p-5">
+                <h5 className="card-title mb-2 text-2xl font-bold tracking-tight text-gray-900 dark:text-white text-center">{props.title}</h5>
                 <p className="card-text mb-3 font-normal text-gray-700 dark:text-gray-400">{props.text}</p>
                 <Link to={props.url} className="card-button inline-flex items-center px-3 py-2 text-sm font-medium text-center text-white bg-blue-700 rounded-lg hover:bg-blue-800 focus:ring-4 focus:outline-none focus:ring-blue-300 dark:bg-blue-600 dark:hover:bg-blue-700 dark:focus:ring-blue-800">
                     {props.button_text}
