@@ -37,6 +37,12 @@ namespace Types{
     }
 
     /**
+     * DishItemComponent props
+     */
+    export type DisheItemProps = {
+    }
+
+    /**
      * DishesComponent state
      */
     export type DishesState = {
@@ -87,7 +93,7 @@ namespace Types{
      * SearchInputComponent props
      */
     export type SearchInputProps = {
-        onFieldInput: (query: string) => void
+        onFieldInput: (query: string) => void, query: string
     }
 
     /**

@@ -9,6 +9,7 @@ import ContactsComponent from "./contacts/ContactsComponent";
 import NotFoundComponent from "./not_found/NotFoundComponent";
 import LoginComponent from "./login/LoginComponent";
 import RegisterComponent from "./register/RegisterComponent";
+import DishesComponent from "./dishes/DishesComponent";
 
 export default class ContainerComponent extends Component<any,any>{
 
@@ -25,7 +26,8 @@ export default class ContainerComponent extends Component<any,any>{
             <div id="page-container">
                 <Routes>
                     <Route path="/" element={<HomeComponent />} />        
-                    <Route path="about" element={<AboutComponent />} />  
+                    <Route path="about" element={<AboutComponent />} />
+                    <Route path="dishes" element={<DishesComponent />} /> 
                     <Route path="menu" element={<RestaurantMenu />} />    
                     <Route path="blog" element={<BlogComponent />} />
                     <Route path="contacts" element={<ContactsComponent />} />
