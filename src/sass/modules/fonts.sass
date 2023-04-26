@@ -1,10 +1,15 @@
 
 @use "sass:map"
 
-$font-info: ('family': '', 'url': '', )
+$font-info: ('family': '', 'url': '../../fonts/restaurant/Restaurant.otf', 'weight': 'normal', 'style': 'normal')
 
 @mixin font($map: $font-info){
-    @if map.has-key($font-info, 'family') and map.has-key($font-info, 'url')
-        font-family: map-get($font-info, 'family')
-        src: url(map.get($font-info,'url'))
+    @if map.has-key($font-info, 'family')
+        @if map.has-key($font-info, 'url')
+            @if map.has-key($font-info, 'weight')
+                @if map.has-key($font-info, 'style')
+                    font-family: map.get($font-info, 'family')
+                    src: url(map.get($font-info, 'url'))
+                    font-weight: map.get($font-info, 'weight')
+                    font-style: map.get($font-info, 'style')
 }

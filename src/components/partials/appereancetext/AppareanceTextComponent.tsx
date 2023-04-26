@@ -3,7 +3,7 @@ import Types from '../../../constants/types'
 
 const AppareanceTextComponent = (props: Types.AppareanceTextProps) => {
   return (
-    <div className='text-2xl font-bold italic leading-5'>{props.text}</div>
+    <div id='home-text' className='text-2xl font-bold italic leading-5'>{props.text}</div>
   )
 }
 
