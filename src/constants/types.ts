@@ -2,6 +2,13 @@
 namespace Types{
 
     /**
+     * AppareanceTextComponent props
+     */
+    export type AppareanceTextProps = {
+        text: string;
+    }
+
+    /**
      * CheckBoxComponent props
      */
     export type CheckBoxProps = {

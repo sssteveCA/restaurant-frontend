@@ -3,7 +3,10 @@ import TitleComponent from '../../partials/title/TitleComponent'
 
 const HomeComponent = () => {
   return (
-    <TitleComponent title="Benvenuto" />
+    <>
+      <TitleComponent title="Benvenuto" />
+    </>
+    
   )
 }
 
