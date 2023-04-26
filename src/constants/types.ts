@@ -16,6 +16,13 @@ namespace Types{
     }
 
     /**
+     * CardComponent props
+     */
+    export type CardProps = {
+        button_text: string, image: string, text: string, title: string, url: string
+    }
+
+    /**
      * ContactsComponent props
      */
     export type ContactsProps = {
