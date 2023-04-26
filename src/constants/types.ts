@@ -37,6 +37,13 @@ namespace Types{
     }
 
     /**
+     * DishesComponent state
+     */
+    export type DishesState = {
+        dishes: any[], query: string
+    }
+
+    /**
      * LabelInputComponent props
      */
     export type LabelInputProps = {
@@ -74,6 +81,13 @@ namespace Types{
      */
     export type RegisterState = {
         first_name: string, last_name: string, email: string, password: string, conf_password: string, passwords_type: string, register_message: string, show_spinner: boolean
+    }
+
+    /**
+     * SearchInputComponent props
+     */
+    export type SearchInputProps = {
+        onFieldInput: (query: string) => void
     }
 
     /**

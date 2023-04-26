@@ -9,7 +9,6 @@ export default class DishesComponent extends Component {
         <>
             <TitleComponent title='Pietanze' />
         </>
-      
     )
   }
 }
