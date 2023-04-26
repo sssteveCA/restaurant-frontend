@@ -1,5 +1,6 @@
 import React from 'react'
 import Types from '../../../constants/types'
+import './AppereanceTextComponent.sass'
 
 const AppareanceTextComponent = (props: Types.AppareanceTextProps) => {
   return (
