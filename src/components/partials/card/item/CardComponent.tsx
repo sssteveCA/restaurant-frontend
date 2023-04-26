@@ -1,5 +1,5 @@
 import React from 'react'
-import Types from '../../../constants/types'
+import Types from '../../../../constants/types'
 import { Link } from 'react-router-dom'
 import './CardComponent.sass'
 

@@ -1,5 +1,5 @@
 import React, { Component } from 'react'
-import Types from '../../../constants/types'
+import Types from '../../../../constants/types'
 import './AppereanceTextComponent.sass'
 
 export default class AppareanceTextComponent extends Component<Types.AppareanceTextProps, any> {

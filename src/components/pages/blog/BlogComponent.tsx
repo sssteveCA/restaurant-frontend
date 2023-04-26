@@ -1,5 +1,5 @@
 import React, { Component } from 'react'
-import TitleComponent from '../../partials/title/TitleComponent'
+import TitleComponent from '../../partials/text/title/TitleComponent'
 
 export default class BlogComponent extends Component<any,any>{
 

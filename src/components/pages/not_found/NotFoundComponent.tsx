@@ -1,5 +1,5 @@
 import React from 'react'
-import TitleComponent from '../../partials/title/TitleComponent'
+import TitleComponent from '../../partials/text/title/TitleComponent'
 
 const NotFoundComponent = () => {
   return (

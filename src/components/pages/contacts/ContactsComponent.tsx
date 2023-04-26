@@ -1,14 +1,14 @@
 import { Component } from "react";
 import Types from "../../../constants/types";
 import TwoButtonsComponent from "../../partials/buttons/twobuttons/TwoButtonsComponent";
-import LabelInputComponent from "../../partials/labelinput/LabelInputComponent";
-import LabelTextareaComponent from "../../partials/labeltextarea/LabelTextareaComponent";
-import TitleComponent from "../../partials/title/TitleComponent";
+import LabelInputComponent from "../../partials/form/labelinput/LabelInputComponent";
+import LabelTextareaComponent from "../../partials/form/labeltextarea/LabelTextareaComponent";
+import TitleComponent from "../../partials/text/title/TitleComponent";
 import './ContactsComponent.sass';
 import { ContactsRequest, ContactsRequestType } from "../../../requests/contacts_request";
 import { Paths } from "../../../constants/paths";
 import { Keys } from "../../../constants/keys";
-import MessageComponent from "../../partials/message/MessageComponent";
+import MessageComponent from "../../partials/text/message/MessageComponent";
 
 export default class ContactsComponent extends Component<any,Types.ContactsState>{
 

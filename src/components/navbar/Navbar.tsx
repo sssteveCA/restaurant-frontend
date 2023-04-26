@@ -10,19 +10,20 @@ export default class Navbar extends React.Component<any,any>{
     private readonly menu_data: Types.MenuItem[]  = [
         {id: 0, title: 'Home', link: '/'},
         {id: 1, title: 'Chi siamo', link: '/about'},
-        {id: 2, title: 'Menu', link: '/menu'},
-        {id: 3, title: 'Blog', link: '/blog'},
-        {id: 4, title: 'Contatti', link: '/contacts'},
+        {id: 2, title: 'Pietanze', link: '/dishes'},
+        {id: 3, title: 'Menu', link: '/menu'},
+        {id: 4, title: 'Blog', link: '/blog'},
+        {id: 5, title: 'Contatti', link: '/contacts'},
     ];
 
     private readonly menu_not_logged: Types.MenuItem[] = [
-        {id: 5,title: 'Login', link: '/login'},
-        {id: 6,title: 'Registrati', link: '/register'},
+        {id: 6,title: 'Login', link: '/login'},
+        {id: 7,title: 'Registrati', link: '/register'},
     ]
 
     private readonly menu_logged: Types.MenuItem[] = [
-        {id: 7,title: 'Profilo', link: '#'},
-        {id: 8,title: 'Logout', link: '#'},
+        {id: 8,title: 'Profilo', link: '#'},
+        {id: 9,title: 'Logout', link: '#'},
     ]
 
     constructor(props: any){
@@ -104,13 +105,13 @@ export default class Navbar extends React.Component<any,any>{
             right_menu = this.menu_logged;
         else
             right_menu = this.menu_not_logged;
-        return right_menu.map(menu_item => {
-            return (
+        return right_menu.map(menu_item => 
+            (
                 <li key={menu_item.id} className="mr-6 px-3 py-3">
                     <NavLink to={menu_item.link}>{menu_item.title}</NavLink>
                 </li>
             )
-        })
+        )
     }
   
 }

@@ -1,5 +1,5 @@
 import React from 'react'
-import Types from '../../../constants/types'
+import Types from '../../../../constants/types'
 
 const MessageComponent = (props: Types.MessageProps) => {
 

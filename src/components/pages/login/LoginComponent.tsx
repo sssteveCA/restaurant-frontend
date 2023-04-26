@@ -1,14 +1,14 @@
 import { Component, ReactNode } from "react";
 import Types from "../../../constants/types";
 import TwoButtonsComponent from "../../partials/buttons/twobuttons/TwoButtonsComponent";
-import CheckBoxComponent from "../../partials/checkbox/CheckBoxComponent";
-import LabelInputComponent from "../../partials/labelinput/LabelInputComponent";
-import TitleComponent from "../../partials/title/TitleComponent";
+import CheckBoxComponent from "../../partials/form/checkbox/CheckBoxComponent";
+import LabelInputComponent from "../../partials/form/labelinput/LabelInputComponent";
+import TitleComponent from "../../partials/text/title/TitleComponent";
 import './LoginComponent.sass'
 import { LoginRequest, LoginRequestType } from "../../../requests/login_request";
 import { Paths } from "../../../constants/paths";
 import { Keys } from "../../../constants/keys";
-import MessageComponent from "../../partials/message/MessageComponent";
+import MessageComponent from "../../partials/text/message/MessageComponent";
 
 export default class LoginComponent extends Component<any,Types.LoginState>{
 

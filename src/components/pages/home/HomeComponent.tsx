@@ -1,7 +1,7 @@
 import React from 'react'
-import TitleComponent from '../../partials/title/TitleComponent'
-import AppareanceTextComponent from '../../partials/appereancetext/AppareanceTextComponent'
-import HomeCardContainerComponent from '../../partials/homecardcontainer/HomeCardContainerComponent'
+import TitleComponent from '../../partials/text/title/TitleComponent'
+import AppareanceTextComponent from '../../partials/text/appereancetext/AppareanceTextComponent'
+import HomeCardContainerComponent from '../../partials/card/homecardcontainer/HomeCardContainerComponent'
 
 const HomeComponent = () => {
   return (

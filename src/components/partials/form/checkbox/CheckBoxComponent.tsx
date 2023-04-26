@@ -1,5 +1,5 @@
 import React, { Component, SyntheticEvent } from 'react'
-import Types from '../../../constants/types'
+import Types from '../../../../constants/types'
 
 export default class CheckBoxComponent extends Component<Types.CheckBoxProps, any> {
 

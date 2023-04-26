@@ -1,6 +1,6 @@
 import React, { Component } from 'react'
-import Types from '../../../constants/types'
-import CardComponent from '../card/CardComponent'
+import Types from '../../../../constants/types'
+import CardComponent from '../item/CardComponent'
 import about_us from '../../../assets/images/aboutus_card.jpg'
 import ourfood from '../../../assets/images/ourfood_card.webp'
 import menu from '../../../assets/images/menu_card.jpg'
