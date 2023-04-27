@@ -41,16 +41,11 @@ export default class DishesComponent extends Component<any,Types.DishesState> {
     return (
         <>
             <TitleComponent title='Pietanze' />
-            <MessageComponent message={this.state.message} />
             <SearchInputComponent onFieldInput={this.onSearchInputChange} query={this.state.query} />
+            <MessageComponent message={this.state.message} />
             {
-                this.state.dishes.map((dish,i) => <DisheItemComponent /> )
+                this.state.match_dishes.map((dish,i) => <DisheItemComponent key={i} /> )
             }
-            <div id="dishes-list">
-                {
-                    this.state.match_dishes.map((dish, i) => <div key={i} />)
-                }
-            </div>
         </>
     )
   }
