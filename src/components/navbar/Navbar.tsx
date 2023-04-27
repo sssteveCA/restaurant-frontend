@@ -44,16 +44,7 @@ export default class Navbar extends React.Component<any,Types.NavbarState>{
 
     componentDidUpdate(prevProps: Readonly<any>, prevState: Readonly<Types.NavbarState>, snapshot?: any): void {
         if(prevState.info_hover !== this.state.info_hover){
-            let navbar_info_ul: HTMLUListElement = document.getElementById('navbar-info-ul') as HTMLUListElement;
-            if(this.state.info_hover){
-                let navbar_info: HTMLLIElement = document.getElementById('navbar-info') as HTMLLIElement;
-                navbar_info_ul.style.top = `${navbar_info.offsetTop+navbar_info.offsetHeight}px`
-                let niu_w_diff: number = navbar_info.offsetWidth-navbar_info_ul.offsetWidth
-                if(niu_w_diff > 0)
-                    navbar_info_ul.style.left = `${navbar_info.offsetLeft-(niu_w_diff/2)}px`
-                else
-                    navbar_info_ul.style.left = `${navbar_info.offsetLeft+(niu_w_diff/2)}px`
-            }//if(this.state.info_hover){
+           this.submenuInfoPlace();
         }//if(prevState.info_hover !== this.state.info_hover){
     }
 
@@ -65,6 +56,7 @@ export default class Navbar extends React.Component<any,Types.NavbarState>{
     }
 
     render(): React.ReactNode {
+
         return (
             <>
             <nav className='bg-blue-500 text-white font-bold'>
@@ -103,7 +95,9 @@ export default class Navbar extends React.Component<any,Types.NavbarState>{
             <div id="navbar-online-restaurant" className="hidden lg:flex lg:flex-row lg:justify-between w-full">
                 <ul className='flex flex-col lg:flex-row'>
                     {this.leftMenu()}
-                    <li id='navbar-info' className='flex items-center' onMouseEnter={this.privacyMenuMouseEnter} onMouseLeave={this.privacyMenuMouseLeave}>Informativa</li>
+                    <li id='navbar-info' className='flex flex-col lg:items-center mr-6 p-3' onMouseEnter={this.privacyMenuMouseEnter} onMouseLeave={this.privacyMenuMouseLeave}>
+                        <div className='w-full h-full'>Informativa</div>
+                        </li>
                     </ul>
                 <ul className='flex flex-col lg:flex-row'>{this.rightMenu()}</ul>
             </div>
@@ -124,10 +118,16 @@ export default class Navbar extends React.Component<any,Types.NavbarState>{
         });
     }
 
+    /**
+     * When user enter with mouse in privacy submenu
+     */
     private privacyMenuMouseEnter(): void{
         this.setState({info_hover: true})
     }
 
+    /**
+     * When user exit with mouse from privacy submenu
+     */
     private privacyMenuMouseLeave(): void{
         this.setState({info_hover: false})
     }
@@ -149,6 +149,27 @@ export default class Navbar extends React.Component<any,Types.NavbarState>{
                 </li>
             )
         )
+    }
+
+    /**
+     * Set the privacy submenu position
+     */
+    private submenuInfoPlace(): void{
+        let navbar_info_ul: HTMLUListElement = document.getElementById('navbar-info-ul') as HTMLUListElement;
+        let navbar_info: HTMLLIElement = document.getElementById('navbar-info') as HTMLLIElement;
+        if(this.state.info_hover){
+            if(window.innerWidth > 992){
+                navbar_info_ul.style.top = `${navbar_info.offsetTop+navbar_info.offsetHeight}px`
+                let niu_w_diff: number = navbar_info.offsetWidth-navbar_info_ul.offsetWidth
+                if(niu_w_diff > 0)
+                    navbar_info_ul.style.left = `${navbar_info.offsetLeft-(niu_w_diff/2)}px`
+                else
+                    navbar_info_ul.style.left = `${navbar_info.offsetLeft+(niu_w_diff/2)}px`
+            }
+            else{
+                navbar_info.appendChild(navbar_info_ul)
+            }
+        }
     }
   
 }

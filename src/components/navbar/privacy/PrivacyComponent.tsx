@@ -10,7 +10,7 @@ const PrivacyComponent = (props: Types.PrivacyProps) => {
             {
                 props.menu_privacy.map(menu_item => {
                     return (
-                        <li key={menu_item.id} className='mr-6 p-3'>
+                        <li key={menu_item.id} className='p-3'>
                             <NavLink to={menu_item.link}>{menu_item.title}</NavLink>
                         </li>
                     )
