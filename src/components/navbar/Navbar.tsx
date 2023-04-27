@@ -4,6 +4,7 @@ import { Link } from 'react-router-dom';
 import { NavLink } from 'react-router-dom';
 import Types from '../../constants/types';
 import './Navbar.sass'
+import PrivacyComponent from './privacy/PrivacyComponent';
 
 export default class Navbar extends React.Component<any,Types.NavbarState>{
 
@@ -42,12 +43,20 @@ export default class Navbar extends React.Component<any,Types.NavbarState>{
     }
 
     componentDidUpdate(prevProps: Readonly<any>, prevState: Readonly<Types.NavbarState>, snapshot?: any): void {
-        if(this.state.info_hover){
-
-        }
-        else{
-
-        }
+        if(prevState.info_hover !== this.state.info_hover){
+            let navbar_info_ul: HTMLUListElement = document.getElementById('navbar-info-ul') as HTMLUListElement;
+            if(this.state.info_hover){
+                let navbar_info: HTMLLIElement = document.getElementById('navbar-info') as HTMLLIElement;
+                navbar_info_ul.style.position = 'absolute'
+                navbar_info_ul.style.top = `${navbar_info.offsetTop+navbar_info.offsetHeight}px`
+                let niu_w_diff: number = navbar_info.offsetWidth-navbar_info_ul.offsetWidth
+                if(niu_w_diff > 0)
+                    navbar_info_ul.style.left = `${navbar_info.offsetTop+(niu_w_diff/2)}px`
+                else
+                    navbar_info_ul.style.left = `${navbar_info.offsetTop-(niu_w_diff/2)}px`
+    
+            }//if(this.state.info_hover){
+        }//if(prevState.info_hover !== this.state.info_hover){
     }
 
     private onCollapseButtonClick(): void{
@@ -59,13 +68,16 @@ export default class Navbar extends React.Component<any,Types.NavbarState>{
 
     render(): React.ReactNode {
         return (
+            <>
             <nav className='bg-blue-500 text-white font-bold'>
                 <div className="container flex flex-wrap items-center justify-between mx-auto">
                     {this.collapse()}
                     {this.menu()}
                 </div>
-                
-            </nav>     
+            </nav>
+            <PrivacyComponent menu_privacy={this.menu_privacy} show={this.state.info_hover} />   
+            </>
+              
           )
     }
 
@@ -112,22 +124,6 @@ export default class Navbar extends React.Component<any,Types.NavbarState>{
                 </li>
             )
         });
-    }
-
-    private privacyMenu(): JSX.Element{
-        return (
-            <ul id='navbar-info-ul' className='hidden'>
-                {
-                    this.menu_privacy.map(menu_item => {
-                        return (
-                            <li key={menu_item.id} className='mr-6 p-3'>
-                                <NavLink to={menu_item.link}>{menu_item.title}</NavLink>
-                            </li>
-                        )
-                    })
-                }
-            </ul>
-        )
     }
 
     private privacyMenuMouseEnter(): void{
