@@ -1,4 +1,6 @@
 @import "../../sass/partials/extend"
+@use "sass:map"
+@use "../../sass/modules/globals"
 
 @mixin button-style()
     button#collapse-button
@@ -17,8 +19,14 @@
             li
                 &:hover
                     @extend %menu-hover
+    @include submenu-info-style()
+
+@mixin submenu-info-style()
     ul#navbar-info-ul
-        position: absolute
+        @media only screen and(min-width: #{map.get(globals.$breakpoints,'md')})
+            position: absolute
+        @media only screen and(min-width: #{map.get(globals.$breakpoints,'xs')})
+            position: relative
         z-index: 99
         &:hover
             display: block 
