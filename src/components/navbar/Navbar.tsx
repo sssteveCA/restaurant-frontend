@@ -94,7 +94,6 @@ export default class Navbar extends React.Component<any,Types.NavbarState>{
                 <ul className='flex flex-col lg:flex-row'>
                     {this.leftMenu()}
                     <li id='navbar-info' className='flex items-center' onMouseEnter={this.privacyMenuMouseEnter} onMouseLeave={this.privacyMenuMouseLeave}>Informativa</li>
-                    {this.privacyMenu()}
                     </ul>
                 <ul className='flex flex-col lg:flex-row'>{this.rightMenu()}</ul>
             </div>
@@ -117,7 +116,7 @@ export default class Navbar extends React.Component<any,Types.NavbarState>{
 
     private privacyMenu(): JSX.Element{
         return (
-            <ul id='navbar-info-ul'>
+            <ul id='navbar-info-ul' className='hidden'>
                 {
                     this.menu_privacy.map(menu_item => {
                         return (

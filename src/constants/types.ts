@@ -1,3 +1,4 @@
+import { Type } from "typescript";
 
 namespace Types{
 
@@ -94,6 +95,10 @@ namespace Types{
      */
     export type NavbarState = {
         info_hover: boolean, logged: boolean
+    }
+
+    export type PrivacyProps = {
+        menu_privacy: Types.MenuItem[], show: boolean
     }
 
     /**
