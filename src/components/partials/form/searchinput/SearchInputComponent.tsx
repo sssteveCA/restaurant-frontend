@@ -1,11 +1,18 @@
 import React, { Component, SyntheticEvent } from 'react'
 import Types from '../../../../constants/types'
+import './SearchInputComponent.sass'
 
 export default class SearchInputComponent extends Component<Types.SearchInputProps, any> {
 
     constructor(props: Types.SearchInputProps){
         super(props)
         this.onFieldInput = this.onFieldInput.bind(this)
+    }
+
+    componentDidMount(): void {
+        setTimeout(() => {
+            document.getElementById('form-search-input')?.classList.add('my-transition')
+        },100)
     }
 
     onFieldInput(e: SyntheticEvent): void{
@@ -16,7 +23,7 @@ export default class SearchInputComponent extends Component<Types.SearchInputPro
   render() {
     return (
       
-<form className='w-2/3 mx-auto'>   
+<form id='form-search-input' className='w-2/3 mx-auto'>   
     <label htmlFor="default-search" className="mb-2 text-sm font-medium text-gray-900 sr-only dark:text-white">Cerca</label>
     <div className="relative">
         <div className="absolute inset-y-0 left-0 flex items-center pl-3 pointer-events-none">

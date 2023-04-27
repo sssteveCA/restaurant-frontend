@@ -1,0 +1,16 @@
+@use "../../../../sass/modules/transition"
+
+@mixin si-style()
+    form#form-search-input
+        position: relative
+        top: 20px
+        right: -20px
+        width: 0%
+        @include transition.transition($map: transition.$transition-map-two)
+        &.my-transition
+            width: 66.666667%
+            top: 0px
+            right: 0px
+
+@include si-style
+        
