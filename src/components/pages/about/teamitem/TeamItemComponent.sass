@@ -3,24 +3,27 @@
 @use "../../../../sass/modules/globals"
 @use "../../../../sass/modules/transition"
 
-
-@function is-odd($number)
-    @if meta.type-of($number) == number
-        @if $number % 2 != 0
-            @return true
-        @else
-            @return false
+@mixin team-item-transition()
+    @if globals.is-odd($i) == true
+        left: 100%
+    @else
+        left: -100%
+    @include transition.transition(transition.$transition-map-three)
+    &.my-transition
+        left: 0%
 
 @mixin team-item-style()
     $items: 4
     @for $i = 1 through $items
         div.team-item-div:nth-child(#{$i})
-            
+            position: relative
+            @include team-item-transition()
             .team-item-image, .team-item-text
                 width: clamp(300px, 100%, 700px)
                 height: clamp(150px, 100%, 300px)
                 img
                     width: 100%
+
 
 @include team-item-style
     
