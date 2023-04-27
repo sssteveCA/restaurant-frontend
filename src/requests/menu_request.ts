@@ -1,5 +1,5 @@
 
-import axios, { isAxiosError } from 'axios'
+import axios from 'axios'
 
 export type MenuRequestType = {
     url: string;

@@ -9,6 +9,13 @@ namespace Types{
     }
 
     /**
+     * BlogComponent state
+     */
+    export type BlogState = {
+        articles: any[], message: string, spinner_show: boolean
+    }
+
+    /**
      * CheckBoxComponent props
      */
     export type CheckBoxProps = {
