@@ -103,6 +103,15 @@ namespace Types{
         visible: boolean
     }
 
+    export type TeamItemProps = {
+        image: {
+            classes: string, name: string, url: string
+        },
+        text: {
+            classes: string, description: string, title: string, 
+        }
+    }
+
     /**
      * TwoButtonsComponent props
      */

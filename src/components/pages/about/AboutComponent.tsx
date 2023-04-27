@@ -4,7 +4,13 @@ import './AboutComponent.sass'
 
 const AboutComponent = () => {
   return (
-    <TitleComponent title="Pagina chi siamo" />
+    <>
+      <TitleComponent title="Pagina chi siamo" />
+      <div className='mt-10 flex flex-col'>
+
+      </div>
+    </>
+    
   )
 }
 
