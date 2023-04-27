@@ -18,11 +18,11 @@ export default class HomeCardContainerComponent extends Component<any,any>{
 
     render(){
         let card_props: Types.CardProps[] = [
-            {button_text: 'Per saperne di più', image: about_us, text:'La nostra storia e il nostro team', title: 'Il team', url: ''},
-            {button_text: 'Per saperne di più', image: ourfood, text:'La lista di tutte le nostre pietanze', title: 'Le nostre pietanze', url: ''},
-            {button_text: 'Per saperne di più', image: menu, text:'Il menu offerto a pranzo e a cena', title: 'Menu', url: ''},
-            {button_text: 'Per saperne di più', image: blog, text:'Notizie e consigli del nostro staff', title: 'Blog', url: ''},
-            {button_text: 'Per saperne di più', image: contacts, text:'Vuoi maggiori informazioni oppure hai una richiesta?', title: 'Contatti', url: ''},
+            {button_text: 'Per saperne di più', image: about_us, text:'La nostra storia e il nostro team', title: 'Il team', url: 'about'},
+            {button_text: 'Per saperne di più', image: ourfood, text:'La lista di tutte le nostre pietanze', title: 'Le nostre pietanze', url: 'dishes'},
+            {button_text: 'Per saperne di più', image: menu, text:'Il menu offerto a pranzo e a cena', title: 'Menu', url: 'menu'},
+            {button_text: 'Per saperne di più', image: blog, text:'Notizie e consigli del nostro staff', title: 'Blog', url: 'blog'},
+            {button_text: 'Per saperne di più', image: contacts, text:'Vuoi maggiori informazioni oppure hai una richiesta?', title: 'Contatti', url: 'contacts'},
         ];
 
         return (
