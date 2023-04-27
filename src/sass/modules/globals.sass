@@ -1,2 +1,9 @@
 
 $urls: (background: "http://localhost:3000/background.jpg")
+
+@function is-odd($number)
+    @if meta.type-of($number) == number
+        @if $number % 2 != 0
+            @return true
+        @else
+            @return false

@@ -1,11 +1,26 @@
 
+@use "sass:meta"   
+@use "../../../../sass/modules/globals"
+@use "../../../../sass/modules/transition"
+
+
+@function is-odd($number)
+    @if meta.type-of($number) == number
+        @if $number % 2 != 0
+            @return true
+        @else
+            @return false
+
 @mixin team-item-style()
-    div.team-item-div
-        .team-item-image, .team-item-text
-            width: clamp(300px, 100%, 700px)
-            height: clamp(150px, 100%, 300px)
-            img
-                width: 100%
+    $items: 4
+    @for $i = 1 through $items
+        div.team-item-div:nth-child(#{$i})
+            
+            .team-item-image, .team-item-text
+                width: clamp(300px, 100%, 700px)
+                height: clamp(150px, 100%, 300px)
+                img
+                    width: 100%
 
 @include team-item-style
     
