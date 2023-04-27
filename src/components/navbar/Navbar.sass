@@ -1,3 +1,4 @@
+@import "../../sass/partials/extend"
 
 @mixin button-style()
     button#collapse-button
@@ -15,13 +16,16 @@
         ul
             li
                 &:hover
-                    background-color: yellow
-                    color: black
+                    @extend %menu-hover
     ul#navbar-info-ul
         position: absolute
         z-index: 99
         &:hover
-            display: block   
+            display: block 
+        li
+            width: 100%
+            &:hover
+                @extend %menu-hover
 
 
 @include menu-style()
