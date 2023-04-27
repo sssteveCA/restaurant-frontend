@@ -1,4 +1,5 @@
 import React, { Component } from "react";
+import TitleComponent from "../../partials/text/title/TitleComponent";
 
 export default class RestaurantMenu extends Component<any,any>{
     
@@ -8,7 +9,9 @@ export default class RestaurantMenu extends Component<any,any>{
 
     render(): React.ReactNode {
         return (
-            <div className='text-2xl md:text-3xl lg:text-4xl text-black font-black text-center'>Pagina menu ristorante</div>
+            <>
+                <TitleComponent title="Pagina menu ristorante" />
+            </>
         )
     }
 }

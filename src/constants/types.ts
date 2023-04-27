@@ -46,7 +46,7 @@ namespace Types{
      * DishesComponent state
      */
     export type DishesState = {
-        dishes: any[], match_dishes: any[], message: string, query: string
+        dishes: any[], match_dishes: any[], message: string, query: string, spinner_show: boolean
     }
 
     /**
@@ -87,6 +87,10 @@ namespace Types{
      */
     export type RegisterState = {
         first_name: string, last_name: string, email: string, password: string, conf_password: string, passwords_type: string, register_message: string, show_spinner: boolean
+    }
+
+    export type RestaurantMenuState = {
+        menu: any[], message: string, spinner_show: boolean
     }
 
     /**

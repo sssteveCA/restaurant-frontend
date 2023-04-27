@@ -7,13 +7,14 @@ import { DishesRequest, DishesRequestType } from '../../../requests/dishes_reque
 import MessageComponent from '../../partials/text/message/MessageComponent'
 import { Keys } from '../../../constants/keys'
 import { Paths } from '../../../constants/paths'
+import SpinnerComponent from '../../partials/spinner/SpinnerComponent'
 
 export default class DishesComponent extends Component<any,Types.DishesState> {
 
     constructor(props: any){
         super(props)
         this.state = {
-            dishes: [], match_dishes: [], message: '', query: ''
+            dishes: [], match_dishes: [], message: '', query: '', spinner_show: false
         }
         this.onSearchInputChange = this.onSearchInputChange.bind(this)
     }
@@ -23,7 +24,9 @@ export default class DishesComponent extends Component<any,Types.DishesState> {
             url: Paths.URL_BASE+Paths.URL_DISHES_ALL
         }
         let dr: DishesRequest = new DishesRequest(dr_data);
+        this.setState({spinner_show: true})
         dr.getDishes().then(obj => {
+            this.setState({spinner_show: false})
             if(obj[Keys.KEY_DONE]){
                 this.setState({dishes: obj['dishes']})
             }
@@ -42,6 +45,7 @@ export default class DishesComponent extends Component<any,Types.DishesState> {
         <>
             <TitleComponent title='Pietanze' />
             <SearchInputComponent onFieldInput={this.onSearchInputChange} query={this.state.query} />
+            <SpinnerComponent visible={this.state.spinner_show} />
             <MessageComponent message={this.state.message} />
             {
                 this.state.match_dishes.map((dish,i) => <DisheItemComponent key={i} /> )

@@ -2,7 +2,7 @@ import React from 'react'
 import Types from '../../../constants/types'
 
 const SpinnerComponent = (props: Types.SpinnerProps) => {
-    let classes = "ml-4";
+    let classes = "mt-10 text-center";
     if(props.visible)classes = classes+" visible"
     else classes = classes+" invisible"
 
