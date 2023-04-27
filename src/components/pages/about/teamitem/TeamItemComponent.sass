@@ -1,0 +1,11 @@
+
+@mixin team-item-style()
+    div.team-item-div
+        .team-item-image, .team-item-text
+            width: clamp(300px, 100%, 700px)
+            height: clamp(150px, 100%, 300px)
+            img
+                width: 100%
+
+@include team-item-style
+    
