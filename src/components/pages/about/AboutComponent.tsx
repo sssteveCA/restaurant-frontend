@@ -12,6 +12,7 @@ const AboutComponent = () => {
 
   let our_team: Types.TeamItemProps[] = [
     {
+      id: 1,
       image: {
         classes: 'order-1', name: 'Alessandro Borghese', url: alessandro_borghese
       },
@@ -22,6 +23,7 @@ const AboutComponent = () => {
       }
     },
     {
+      id: 2,
       image: {
         classes: 'order-2', name: 'Carlo Cracco', url: carlo_cracco
       },
@@ -30,6 +32,7 @@ const AboutComponent = () => {
       }
     },
     {
+      id: 3,
       image: {
         classes: 'order-1', name: 'Giorgio Locatelli', url: giorgio_locatelli
       },
@@ -38,6 +41,7 @@ const AboutComponent = () => {
       }
     },
     {
+      id: 4,
       image: {
         classes: 'order-2', name: 'Antonio Cannavacciuolo', url: antonio_cannavaciuolo
       },

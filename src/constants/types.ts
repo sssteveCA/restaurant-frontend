@@ -104,6 +104,7 @@ namespace Types{
     }
 
     export type TeamItemProps = {
+        id: number,
         image: {
             classes: string, name: string, url: string
         },

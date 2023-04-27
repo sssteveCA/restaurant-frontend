@@ -1,9 +1,10 @@
-
-@use "sass:meta"   
+@use "../../../../sass/modules/fonts"
 @use "../../../../sass/modules/globals"
 @use "../../../../sass/modules/transition"
 
-@mixin team-item-transition()
+@include fonts.font-face(fonts.$font-info-2)
+
+@mixin team-item-transition($i)
     @if globals.is-odd($i) == true
         left: 100%
     @else
@@ -14,14 +15,16 @@
 
 @mixin team-item-style()
     $items: 4
-    @for $i = 1 through $items
+    @for $i from 1 through $items
         div.team-item-div:nth-child(#{$i})
             position: relative
-            @include team-item-transition()
+            @include team-item-transition($i)
             .team-item-image, .team-item-text
+                @include fonts.font(fonts.$font-info-2)   
                 width: clamp(300px, 100%, 700px)
-                height: clamp(150px, 100%, 300px)
+                height: 100%
                 img
+                    height: 100%
                     width: 100%
 
 
