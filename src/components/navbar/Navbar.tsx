@@ -16,14 +16,20 @@ export default class Navbar extends React.Component<any,any>{
         {id: 5, title: 'Contatti', link: '/contacts'},
     ];
 
+    private readonly menu_privacy: Types.MenuItem[] = [
+        {id: 6, title: 'Privacy policy', link: '#'},
+        {id: 7, title: 'Cookie policy', link: '#'},
+        {id: 8, title: 'Termini e condizioni', link: '#'},
+    ]
+
     private readonly menu_not_logged: Types.MenuItem[] = [
-        {id: 6,title: 'Login', link: '/login'},
-        {id: 7,title: 'Registrati', link: '/register'},
+        {id: 9,title: 'Login', link: '/login'},
+        {id: 10,title: 'Registrati', link: '/register'},
     ]
 
     private readonly menu_logged: Types.MenuItem[] = [
-        {id: 8,title: 'Profilo', link: '#'},
-        {id: 9,title: 'Logout', link: '#'},
+        {id: 11,title: 'Profilo', link: '#'},
+        {id: 12,title: 'Logout', link: '#'},
     ]
 
     constructor(props: any){
@@ -75,7 +81,10 @@ export default class Navbar extends React.Component<any,any>{
     private menu(): JSX.Element{
         return (
             <div id="navbar-online-restaurant" className="hidden lg:flex lg:flex-row lg:justify-between w-full">
-                <ul className='flex flex-col lg:flex-row'>{this.leftMenu()}</ul>
+                <ul className='flex flex-col lg:flex-row'>
+                    {this.leftMenu()}
+                    {this.privacyMenu()}
+                    </ul>
                 <ul className='flex flex-col lg:flex-row'>{this.rightMenu()}</ul>
             </div>
         );
@@ -88,11 +97,29 @@ export default class Navbar extends React.Component<any,any>{
     private leftMenu(): Array<JSX.Element> {
         return this.menu_data.map((menu_item) => {
             return (
-                <li key={menu_item.id} className="mr-6 px-3 py-3">
+                <li key={menu_item.id} className="mr-6 p-3">
                     <NavLink to={menu_item.link} >{menu_item.title}</NavLink>
                 </li>
             )
         });
+    }
+
+    private privacyMenu(): JSX.Element{
+        return (
+            <li id='navbar-info' className='flex items-center'>Informativa
+                <ul>
+                    {
+                        this.menu_privacy.map(menu_item => {
+                            return (
+                                <li key={menu_item.id} className='mr-6 p-3'>
+                                    <NavLink to={menu_item.link}>{menu_item.title}</NavLink>
+                                </li>
+                            )
+                        })
+                    }
+                </ul>
+            </li>
+        )
     }
 
     /**
@@ -107,7 +134,7 @@ export default class Navbar extends React.Component<any,any>{
             right_menu = this.menu_not_logged;
         return right_menu.map(menu_item => 
             (
-                <li key={menu_item.id} className="mr-6 px-3 py-3">
+                <li key={menu_item.id} className="mr-6 p-3">
                     <NavLink to={menu_item.link}>{menu_item.title}</NavLink>
                 </li>
             )
