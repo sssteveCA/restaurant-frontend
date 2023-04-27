@@ -9,7 +9,7 @@ export default class BlogComponent extends Component<any,any>{
 
     render(): React.ReactNode {
         return (
-            <TitleComponent title="Pagina del blog" />
+            <TitleComponent title="Blog" />
         )
     }
 }

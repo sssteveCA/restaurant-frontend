@@ -79,7 +79,7 @@ export default class ContactsComponent extends Component<any,Types.ContactsState
         }
         return (
             <>
-                <TitleComponent title="Pagina dei contatti" />
+                <TitleComponent title="Contatti" />
                 <div id="contacts-container">
                     <form>
                         <LabelInputComponent input_id="name" input_type="text" label_text="Nome" onInputChange={this.onInputChange}/>

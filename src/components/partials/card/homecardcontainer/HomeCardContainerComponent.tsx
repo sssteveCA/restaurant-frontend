@@ -18,7 +18,7 @@ export default class HomeCardContainerComponent extends Component<any,any>{
 
     render(){
         let card_props: Types.CardProps[] = [
-            {button_text: 'Per saperne di più', image: about_us, text:'La nostra storia e il nostro team', title: 'Chi siamo', url: ''},
+            {button_text: 'Per saperne di più', image: about_us, text:'La nostra storia e il nostro team', title: 'Il team', url: ''},
             {button_text: 'Per saperne di più', image: ourfood, text:'La lista di tutte le nostre pietanze', title: 'Le nostre pietanze', url: ''},
             {button_text: 'Per saperne di più', image: menu, text:'Il menu offerto a pranzo e a cena', title: 'Menu', url: ''},
             {button_text: 'Per saperne di più', image: blog, text:'Notizie e consigli del nostro staff', title: 'Blog', url: ''},

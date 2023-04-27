@@ -33,7 +33,7 @@ export default class RestaurantMenu extends Component<any,Types.RestaurantMenuSt
     render(): React.ReactNode {
         return (
             <>
-                <TitleComponent title="Pagina menu ristorante" />
+                <TitleComponent title="Menu ristorante" />
                 <SpinnerComponent visible={this.state.spinner_show} />
                 <MessageComponent message={this.state.message} />
                 {
