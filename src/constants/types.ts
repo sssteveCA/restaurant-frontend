@@ -90,6 +90,13 @@ namespace Types{
     }
 
     /**
+     * Navbar state
+     */
+    export type NavbarState = {
+        info_hover: boolean, logged: boolean
+    }
+
+    /**
      * RegisterComponent state
      */
     export type RegisterState = {

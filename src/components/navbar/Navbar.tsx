@@ -5,7 +5,7 @@ import { NavLink } from 'react-router-dom';
 import Types from '../../constants/types';
 import './Navbar.sass'
 
-export default class Navbar extends React.Component<any,any>{
+export default class Navbar extends React.Component<any,Types.NavbarState>{
 
     private readonly menu_data: Types.MenuItem[]  = [
         {id: 0, title: 'Home', link: '/'},
@@ -35,9 +35,19 @@ export default class Navbar extends React.Component<any,any>{
     constructor(props: any){
         super(props);
         this.state = {
-            logged: false
+            info_hover: false, logged: false
         }
-        
+        this.privacyMenuMouseEnter = this.privacyMenuMouseEnter.bind(this)
+        this.privacyMenuMouseLeave = this.privacyMenuMouseLeave.bind(this)
+    }
+
+    componentDidUpdate(prevProps: Readonly<any>, prevState: Readonly<Types.NavbarState>, snapshot?: any): void {
+        if(this.state.info_hover){
+
+        }
+        else{
+
+        }
     }
 
     private onCollapseButtonClick(): void{
@@ -83,6 +93,7 @@ export default class Navbar extends React.Component<any,any>{
             <div id="navbar-online-restaurant" className="hidden lg:flex lg:flex-row lg:justify-between w-full">
                 <ul className='flex flex-col lg:flex-row'>
                     {this.leftMenu()}
+                    <li id='navbar-info' className='flex items-center' onMouseEnter={this.privacyMenuMouseEnter} onMouseLeave={this.privacyMenuMouseLeave}>Informativa</li>
                     {this.privacyMenu()}
                     </ul>
                 <ul className='flex flex-col lg:flex-row'>{this.rightMenu()}</ul>
@@ -106,20 +117,26 @@ export default class Navbar extends React.Component<any,any>{
 
     private privacyMenu(): JSX.Element{
         return (
-            <li id='navbar-info' className='flex items-center'>Informativa
-                <ul>
-                    {
-                        this.menu_privacy.map(menu_item => {
-                            return (
-                                <li key={menu_item.id} className='mr-6 p-3'>
-                                    <NavLink to={menu_item.link}>{menu_item.title}</NavLink>
-                                </li>
-                            )
-                        })
-                    }
-                </ul>
-            </li>
+            <ul id='navbar-info-ul'>
+                {
+                    this.menu_privacy.map(menu_item => {
+                        return (
+                            <li key={menu_item.id} className='mr-6 p-3'>
+                                <NavLink to={menu_item.link}>{menu_item.title}</NavLink>
+                            </li>
+                        )
+                    })
+                }
+            </ul>
         )
+    }
+
+    private privacyMenuMouseEnter(): void{
+        this.setState({info_hover: true})
+    }
+
+    private privacyMenuMouseLeave(): void{
+        this.setState({info_hover: false})
     }
 
     /**
