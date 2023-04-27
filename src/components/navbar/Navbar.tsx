@@ -47,14 +47,12 @@ export default class Navbar extends React.Component<any,Types.NavbarState>{
             let navbar_info_ul: HTMLUListElement = document.getElementById('navbar-info-ul') as HTMLUListElement;
             if(this.state.info_hover){
                 let navbar_info: HTMLLIElement = document.getElementById('navbar-info') as HTMLLIElement;
-                navbar_info_ul.style.position = 'absolute'
                 navbar_info_ul.style.top = `${navbar_info.offsetTop+navbar_info.offsetHeight}px`
                 let niu_w_diff: number = navbar_info.offsetWidth-navbar_info_ul.offsetWidth
                 if(niu_w_diff > 0)
-                    navbar_info_ul.style.left = `${navbar_info.offsetTop+(niu_w_diff/2)}px`
+                    navbar_info_ul.style.left = `${navbar_info.offsetLeft-(niu_w_diff/2)}px`
                 else
-                    navbar_info_ul.style.left = `${navbar_info.offsetTop-(niu_w_diff/2)}px`
-    
+                    navbar_info_ul.style.left = `${navbar_info.offsetLeft+(niu_w_diff/2)}px`
             }//if(this.state.info_hover){
         }//if(prevState.info_hover !== this.state.info_hover){
     }

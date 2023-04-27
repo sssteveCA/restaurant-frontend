@@ -4,9 +4,9 @@ import { NavLink } from 'react-router-dom'
 import Types from '../../../constants/types'
 
 const PrivacyComponent = (props: Types.PrivacyProps) => {
-    let classes: string = props.show === true ? '' : 'hidden'
+    let hidden: string = props.show === true ? '' : ' hidden'
     return (
-        <ul id='navbar-info-ul' className={classes}>
+        <ul id='navbar-info-ul' className={'bg-blue-500 text-white font-bold'+hidden}>
             {
                 props.menu_privacy.map(menu_item => {
                     return (

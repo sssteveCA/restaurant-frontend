@@ -17,8 +17,11 @@
                 &:hover
                     background-color: yellow
                     color: black
-            li#navbar-info
-                position: absolute
+    ul#navbar-info-ul
+        position: absolute
+        z-index: 99
+        &:hover
+            display: block   
 
 
 @include menu-style()
