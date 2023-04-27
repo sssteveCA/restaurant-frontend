@@ -50,7 +50,7 @@ const AboutComponent = () => {
       <TitleComponent title="Pagina chi siamo" />
       <div className='mt-10 flex flex-col'>
         {
-          our_team.map((item,i) => ( <TeamItemComponent {...item} />))
+          our_team.map((item,i) => ( <TeamItemComponent key={i} {...item} />))
         }
       </div>
     </>
