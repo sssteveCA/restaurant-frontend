@@ -35,7 +35,7 @@ export class DishesRequest{
         return this._error;
     }
 
-    public async getDishes(): Promise<object>{
+    public async getDishes(): Promise<{[index: string]: any}>{
         let response: object = {}
         this._errno = 0;
         try{

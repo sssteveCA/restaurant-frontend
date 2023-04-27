@@ -46,7 +46,7 @@ namespace Types{
      * DishesComponent state
      */
     export type DishesState = {
-        dishes: any[], query: string
+        dishes: any[], match_dishes: any[], message: string, query: string
     }
 
     /**
