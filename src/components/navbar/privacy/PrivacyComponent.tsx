@@ -7,7 +7,7 @@ export default class PrivacyComponent extends Component<Types.PrivacyProps,any>{
 
 
     render(): React.ReactNode {
-        let hidden: string = this.props.show === true ? '' : ''
+        let hidden: string = this.props.show === true ? '' : ' hidden'
         return (
             <li id='navbar-info' className='flex flex-col justify-start lg:items-center mr-6 p-3' onMouseEnter={this.props.privacyMenuMouseEnter} onMouseLeave={this.props.privacyMenuMouseLeave}>
                 <div className='w-full h-full'>Informativa</div>

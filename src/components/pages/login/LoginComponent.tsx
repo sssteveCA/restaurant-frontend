@@ -28,11 +28,20 @@ export default class LoginComponent extends Component<any,Types.LoginState>{
         },100)
     }
 
+    /**
+     * When the show password checkbox value changes
+     * @param checked 
+     */
     onCheckBoxChange(checked: boolean): void{
         if(checked)this.setState({password_type: 'text'})
         else this.setState({password_type: 'password'})
     }
 
+    /**
+     * When the value of the input elements change
+     * @param id 
+     * @param value 
+     */
     onInputChange(id: string, value: string): void{
         switch(id){
             case 'email':
@@ -44,6 +53,9 @@ export default class LoginComponent extends Component<any,Types.LoginState>{
         }
       }
 
+      /**
+       * When the user press the login button
+       */
     onPrimaryButtonClick(): void{
         this.setState({login_message: ''})
         const lr_data: LoginRequestType = {

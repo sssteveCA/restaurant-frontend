@@ -28,6 +28,11 @@ export default class ContactsComponent extends Component<any,Types.ContactsState
         },100)
     }
 
+    /**
+     * When the value of the input elements change
+     * @param id 
+     * @param value 
+     */
     onInputChange(id: string, value: string): void{
         switch(id){
             case 'name':
@@ -39,6 +44,11 @@ export default class ContactsComponent extends Component<any,Types.ContactsState
         }
     }
 
+    /**
+     * When the value of the textarea element change
+     * @param id 
+     * @param value 
+     */
     onTextAreaChange(id: string, value: string): void{
         switch(id){
             case 'message':
@@ -47,6 +57,9 @@ export default class ContactsComponent extends Component<any,Types.ContactsState
         }
     }
 
+    /**
+     * When the user send a message to the admin for support
+     */
     onPrimaryButtonClick(): void{
         this.setState({contacts_message: ''})
         let cr_data: ContactsRequestType = {

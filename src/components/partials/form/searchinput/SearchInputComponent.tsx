@@ -15,6 +15,10 @@ export default class SearchInputComponent extends Component<Types.SearchInputPro
         },100)
     }
 
+    /**
+     * Handle the input value changes
+     * @param e 
+     */
     onFieldInput(e: SyntheticEvent): void{
         const query: string = (e.target as HTMLInputElement).value
         this.props.onFieldInput(query)

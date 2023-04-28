@@ -37,6 +37,10 @@ export class LoginRequest{
         return this._error; 
     }
 
+    /**
+     * The user send an authentication request with its credentials
+     * @returns 
+     */
     public async login(): Promise<{[index: string]: any}>{
         let response: object = {}
         this._errno = 0;

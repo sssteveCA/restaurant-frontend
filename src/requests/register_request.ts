@@ -50,6 +50,10 @@ export class RegisterRequest{
         this._url = data.url;
     }
 
+    /**
+     * New account request
+     * @returns 
+     */
     public async register(): Promise<{[index: string]: any}>{
         let response: object = {}
         this._errno = 0;

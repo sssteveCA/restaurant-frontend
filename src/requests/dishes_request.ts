@@ -35,6 +35,10 @@ export class DishesRequest{
         return this._error;
     }
 
+    /**
+     * Request the dishes list from the server
+     * @returns 
+     */
     public async getDishes(): Promise<{[index: string]: any}>{
         let response: object = {}
         this._errno = 0;

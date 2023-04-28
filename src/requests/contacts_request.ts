@@ -47,6 +47,10 @@ export class ContactsRequest{
         this._url = data.url;
     }
 
+    /**
+     * Send an email for support request to the admin 
+     * @returns 
+     */
     public async contacts(): Promise<{[index: string]: any}>{
         let response: object = {}
         this._errno = 0;

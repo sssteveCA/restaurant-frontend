@@ -53,6 +53,9 @@ export default class RegisterComponent extends Component<any,Types.RegisterState
     }
   }
 
+  /**
+   * When the user press the register button
+   */
   onPrimaryButtonClick(): void{
     this.setState({register_message: ''})
     const rr_data: RegisterRequestType = {

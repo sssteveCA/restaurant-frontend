@@ -34,6 +34,10 @@ export default class DishesComponent extends Component<any,Types.DishesState> {
         })
     }
 
+    /**
+     * Handle the value of the SearchInput child component when changes
+     * @param query 
+     */
     onSearchInputChange(query: string): void{
         this.setState({query: query})
         let match_dishes = this.state.dishes.filter(dish => (dish['name'] as string).startsWith(query))

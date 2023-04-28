@@ -35,6 +35,9 @@ export class BlogRequest{
         return this._error;
     }
 
+    /**
+     * Request the articles from server
+     */
     public async getArticles(): Promise<{[index: string]: any}>{
         let response: object = {}
         this._errno = 0;

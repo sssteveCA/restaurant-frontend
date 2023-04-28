@@ -1,6 +1,7 @@
 import React from 'react'
 import './Footer.sass'
 import SocialIcons from './social_icons/SocialIcons'
+import { Link } from 'react-router-dom'
 
 const Footer = () => {
   return (
@@ -8,8 +9,8 @@ const Footer = () => {
         <div>Online restaurant</div>
         <div className='pt-5 sm:pt-0'>
             <ul className='footer-link'>
-                <li><a href="#">Privacy</a></li>
-                <li><a href="#">Cookies</a></li>
+                <li><Link to='#'>Privacy</Link></li>
+                <li><Link to='#'>Cookies</Link></li>
             </ul>
         </div>
         <div className='pt-5 md:pt-0'>

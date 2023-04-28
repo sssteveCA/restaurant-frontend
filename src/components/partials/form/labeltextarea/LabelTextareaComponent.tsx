@@ -9,6 +9,10 @@ class LabelTextareaComponent extends Component<Types.LabelTextAreaProps,any> {
     this.onTextAreaChange = this.onTextAreaChange.bind(this)
   }
 
+  /**
+   * Handle the textarea value changes
+   * @param e 
+   */
   onTextAreaChange(e: SyntheticEvent): void{
     let target: HTMLTextAreaElement = e.target as HTMLTextAreaElement;
     let id: string = target.id;

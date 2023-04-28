@@ -2,6 +2,9 @@ import React, { Component } from 'react'
 import Types from '../../../../constants/types'
 import './TeamItemComponent.sass'
 
+/**
+ * Card with info about each person of the team
+ */
 export default class TeamItemComponent extends Component<Types.TeamItemProps, any> {
 
   componentDidMount(): void {

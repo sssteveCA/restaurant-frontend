@@ -48,6 +48,9 @@ export default class Navbar extends React.Component<any,Types.NavbarState>{
         }//if(prevState.info_hover !== this.state.info_hover){
     }
 
+    /**
+     * When the menu in small devices collapse/show
+     */
     private onCollapseButtonClick(): void{
         let menu = document.getElementById('navbar-online-restaurant');
         if(menu)
@@ -56,7 +59,6 @@ export default class Navbar extends React.Component<any,Types.NavbarState>{
     }
 
     render(): React.ReactNode {
-
         return (
             <>
             <nav className='bg-blue-500 text-white font-bold'>

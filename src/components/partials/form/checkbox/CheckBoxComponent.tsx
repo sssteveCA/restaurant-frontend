@@ -8,6 +8,10 @@ export default class CheckBoxComponent extends Component<Types.CheckBoxProps, an
         this.checkBoxChange = this.checkBoxChange.bind(this)
     }
 
+    /**
+     * Handle the checkbox change event
+     * @param e 
+     */
     checkBoxChange(e: SyntheticEvent): void{
       const cb: HTMLInputElement = e.target as HTMLInputElement
       this.props.onCbChange(cb.checked)

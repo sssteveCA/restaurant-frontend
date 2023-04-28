@@ -35,6 +35,10 @@ export class MenuRequest{
         return this._error;
     }
 
+    /**
+     * Restaurant menus request
+     * @returns 
+     */
     public async getMenu(): Promise<{[index: string]: any}>{
         let response: object = {}
         this._errno = 0;
