@@ -65,7 +65,6 @@ export default class Navbar extends React.Component<any,Types.NavbarState>{
                     {this.menu()}
                 </div>
             </nav>
-            <PrivacyComponent menu_privacy={this.menu_privacy} show={this.state.info_hover} />   
             </>
               
           )
@@ -91,13 +90,14 @@ export default class Navbar extends React.Component<any,Types.NavbarState>{
      * @returns 
      */
     private menu(): JSX.Element{
+        let pm_props: Types.PrivacyProps = {
+            menu_privacy: this.menu_privacy, privacyMenuMouseEnter: this.privacyMenuMouseEnter, privacyMenuMouseLeave: this.privacyMenuMouseLeave, show: this.state.info_hover
+        }
         return (
             <div id="navbar-online-restaurant" className="hidden lg:flex lg:flex-row lg:justify-between w-full">
                 <ul className='flex flex-col lg:flex-row'>
                     {this.leftMenu()}
-                    <li id='navbar-info' className='flex flex-col lg:items-center mr-6 p-3' onMouseEnter={this.privacyMenuMouseEnter} onMouseLeave={this.privacyMenuMouseLeave}>
-                        <div className='w-full h-full'>Informativa</div>
-                        </li>
+                    <PrivacyComponent {...pm_props} />
                     </ul>
                 <ul className='flex flex-col lg:flex-row'>{this.rightMenu()}</ul>
             </div>

@@ -98,7 +98,7 @@ namespace Types{
     }
 
     export type PrivacyProps = {
-        menu_privacy: Types.MenuItem[], show: boolean
+        menu_privacy: Types.MenuItem[],  privacyMenuMouseEnter: () => void, privacyMenuMouseLeave: () => void, show: boolean
     }
 
     /**
