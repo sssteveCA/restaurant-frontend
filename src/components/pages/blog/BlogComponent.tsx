@@ -18,7 +18,7 @@ export default class BlogComponent extends Component<any,Types.BlogState>{
 
     componentDidMount(): void {
         let br_data: BlogRequestType = {
-            url: Paths.URL_BASE+Paths.URL_BLOG
+            url: Paths.URL_BASE+Paths.URL_ARTICLES
         }
         let br: BlogRequest = new BlogRequest(br_data)
         this.setState({spinner_show: true})
